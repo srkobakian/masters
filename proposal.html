@@ -126,7 +126,7 @@ $(document).ready(function () {
 
 <div id="the-proposed-title" class="section level2">
 <h2>THE PROPOSED TITLE</h2>
-<p>What are good practice in visualising geo-spatial and temporal disease data, and estimates?</p>
+<p>What are good practices in visualising geo-spatial and temporal disease data, and estimates?</p>
 </div>
 <div id="the-proposed-supervisory-team" class="section level2">
 <h2>THE PROPOSED SUPERVISORY TEAM</h2>
@@ -134,39 +134,116 @@ $(document).ready(function () {
 <p><em>Associate Supervisor:</em> Dr Earl Duncan; Science and Engineering Faculty, School of Mathematical Sciences</p>
 <p><em>Non QUT Associate Supervisor:</em> Professor Dianne Cook; Econometrics &amp; Business Statistics Faculty, Monash University.</p>
 </div>
-<div id="background-and-literature-review-maximum-1400-words" class="section level2">
-<h2>BACKGROUND AND LITERATURE REVIEW (Maximum 1,400 words)</h2>
+<div id="background-and-literature-review-maximum-1400-words-760ish-now" class="section level2">
+<h2>BACKGROUND AND LITERATURE REVIEW (Maximum 1,400 words, 760ish now)</h2>
 <div id="introductory-statement" class="section level3">
 <h3>Introductory Statement</h3>
-<p>Disease data is usually distributed by government organisations as aggregated values for small spatial areas, often defined by political units. A typical approach to plot this data is to make a map with colour representing the numerical value in the spatial area, which is called a choropleth map. The purpose of making the visualisation is to understand the spatial distribution of disease occurrence. When some areas are small and others are large, the reader can get an inaccurate interpretation of the distribution. This research explores ways to better represent the spatial distribution, with a focus on Australian disease mapping. The work is motivated by the Cancer Atlas of Australia.</p>
+<p>Visualising data has contributed to understanding of problems in many fields. Disease data has been visualised for centuries, and often considers the location of occurences of diseases. Disease data in Australia is usually distributed by medical registries and government organisations as aggregated values for small spatial areas. Australia utilises ABS Structures, ‘areas that the ABS designs specifically for outputting statistics’ and Non ABS Structures which are politically determined ‘administrative areas for which the ABS is committed to providing a range of statistics’.</p>
+<p>A typical approach to plot this data related to small areas is to make a map with colour representing the numerical value associated with the spatial area, which is called a choropleth map. The purpose of making the visualisation is to understand the spatial distribution of disease occurrence. When some areas are small and others are large, the reader can get an inaccurate interpretation of the distribution. This research explores ways to better represent the spatial distribution, with a focus on Australian disease mapping. The work is motivated by the Cancer Atlas of Australia.</p>
 </div>
-<div id="literature-review" class="section level3">
-<h3>Literature Review</h3>
-<p>choropleth map cartogram and hexmap testing effectiveness of type of plot (for accuracy of reading spatial distribution)</p>
-<p><em>This preliminary review needs to:</em> <em>critically analyse and discuss the key current and seminal relevant literature describe an existing gap in the knowledge derived from the analysis of the literature, and discuss how your thesis will address the gap. The detail required varies between faculties and you should be guided by your supervisors – usually a range of sources, normally between 20-30 is required. You should ensure that at least some of the sources discussed are from the most current literature (1-3 years).</em></p>
+<div id="literature-review-creat-bib-references-file" class="section level3">
+<h3>Literature Review (Creat bib references file)</h3>
+<p>Current methods used for mapping geographical disease data are choropleth maps, and cartograms. Choropleth methods incorporate geographical maps, and represent data using colour, transparency and other methods. The geographical areas represented are kept constant, this keeps spatial relationships intact, as the boundaries which are not geographically motivated may be drawn and coloured but the data of the surrounding neighbours can reasonably be considered related.</p>
+<p>Raisz’s (1934) rectangular cartograms are not appropriate for Australian areas. Instead we look at a cartogram that ‘stretches space continuously according to some distribution on a portion of the earth’s surface’ <span class="citation">[@yearsof]</span>. Toble also states ‘the most common use of cartograms is solely for the display and emphasis of a geographic distribution’. Given these cartogram uses and the way Australian area boundaries have been drawn. The need for alternative methods is recognised to maintain spatial relationships for clarity in presenting the spatial distributions.</p>
+<p>One feature of Australian mapping is that no group of areas are homogenous. The size of the states vary greatly, and this is true for all ABS Structures and Non ABS Structures. However the size of these areas is usually driven by population density. The inverse relationships mean less siginificant areas can take up substantial map space. Using most mapping techniques to get a broad perspective of Australia can be misleading, the use of geographical areas misprepresents the spatial distribution of a dataset. Rather than cartogramming, which manipulates the map space of a geogrpahical area according to the value, we will consider representing each area equally on the map space. The use of colour, transparency and symbols is still available.</p>
+<p>This project proposes two key stages, algorithm development and tests of effectiveness. Proposing ideas is valuable, and the creation of an algorithm to create the maps useful too. However they must be able to communicate spatial distributions effectively. The implementation of the maps will only be helpful if they can allow the people using them to draw conclusions or raise qustions that were not immediately obvious using a geographical map.</p>
+<p>To test the effectiveness of types of plots, and the accuracy of reading spatial distributions we will apply visual inference tests. These experiments will be based on Hofmann’s [] work in visual inference.</p>
 </div>
 <div id="research-problem-e.g.aims-questions-andor-hypotheses" class="section level3">
 <h3>Research Problem (e.g. aims, questions and/or hypotheses)</h3>
+<p>Three key problems this work will address.</p>
 <ol style="list-style-type: decimal">
-<li>Algorithm for hexmapping Australia</li>
-<li>Testing the effectiveness of the hexmap relative to the choropleth map for providing a more accurate reading of spatial distribution for Australia.</li>
-<li>Communicating the relationship between the hexmap and choropleth map: animation algorithm</li>
+<li><p>Algorithm for hexmapping Australia</p></li>
+<li><p>Test the effectiveness of the hexmap relative to the choropleth map for providing a more accurate reading of spatial distribution for Australia.</p></li>
+<li><p>Communicating the relationship between the hexmap and choropleth map: animation algorithm</p></li>
 </ol>
+<p>The algorithm will take geospatial areas in the form of polygons, and create an alternative graphical display of the variable that is believed to be spatially distributed.</p>
+<p>The display produced by the algorithm will be contrasted with the traditional choropleth map, applying the same colour and transparency methods to represent the data values. The maps will be presented in the form of experiments, to test the effectiveness by asking for interpretation of spatial distributions.</p>
+<p>Finally, we recognise the value of presenting users with standard maps that are familiar, if we prove the belief that the alternative method enhances interpretation of the spatial distribution we will aim to maximise the benefits of both. The use of animations will allow us to control how people tranform a reconisable map of Australia, or the cities within, into a more sound map for inference. Animation has been used for many years, and is gaining popularity as access to computing power is increasing the amount of applications.</p>
 </div>
 </div>
 <div id="program-and-design-of-the-research-investigation-maximum-2000-words" class="section level2">
 <h2>PROGRAM AND DESIGN OF THE RESEARCH INVESTIGATION (Maximum 2,000 words)</h2>
+<p>We intend to address the program in three chapters:</p>
+<ol style="list-style-type: decimal">
+<li><p>Produce an algorithm for hexmapping Australia</p></li>
+<li><p>Testing the effectiveness of the hexmap relative to the choropleth map</p></li>
+<li><p>Communicating the relationship between the hexmap and choropleth map: animation algorithm</p></li>
+</ol>
 <div id="objectives-methodology-and-research-plan" class="section level3">
 <h3>Objectives, Methodology and Research Plan</h3>
+<p><em>should clearly identify the tasks to be undertaken and how these address your research problem;</em> <em>may be organised in relation to each of the individual aims or questions, and identify specific methods of experimentation for those conducting laboratory based work; </em></p>
+<p><em>And should include a clear if preliminary statement of the theoretical/experimental framework underpinning how you are going to carry out the design / plan.</em></p>
+<div id="chapter-1-algorithm-for-hexmapping-australia" class="section level4">
+<h4>Chapter 1: Algorithm for hexmapping Australia</h4>
+<p>Produce alternative mapping strategies (cartograms informed by Xiaoyue Cheng). While there are visualisations available for spatial data, we can benefit by exploring and creating new displays. During the past few months work has progressed that contributes to this first aim. We have been able to achieve a working algorithm for a hexmap of Australia [link Appendix with code]. This algoirthm takes a set of polygons and creates a hexmap, representing each geographical area with a single hexagon. They are arranged so that hexagons are placed to replicate spatial relationships of areas in each city.</p>
+<p>To create a display, the user needs to provide the desired size of the hexagons for each individual area. Using this, we create a grid of all possible locations for relocated, tessalated polygon centroids. This grid spans the bounding box of the centroids for the geographical areas.</p>
+<p>The order of allocation depends on the ordered dataset of polygon centroids passed to the function. For this set of polygons, the distance has been calculated from each polygon centroid to the closest capital city. This approach allows the polygons in each city to progressively expand out. It is also a valid aprroach for rural areas, as they have little competition for the grid point closest to their polygon centroid.</p>
+<p>To complete Chapter 1, we plan to incorporate repelling and attraction [link Xiaoyue Cheng] mechanisms inspired by Xiaoyue Cheng. This could allow rural areas to bunch together and allow easier comparison of colours or symbols.</p>
+</div>
+<div id="chapter-2-testing-the-effectiveness-of-the-hexmap-relative-to-the-choropleth-map" class="section level4">
+<h4>Chapter 2: Testing the effectiveness of the hexmap relative to the choropleth map</h4>
+<p>To test the effectiveness of the alternative mapping techniques, we will produce an experiment hosted on Amazon’s (2008) Mechanical Turk. The ‘concept of a ’null distribution of plots’ as the analogue of the null distribution of tests statistics’ [stat inf EDA Buja] using ‘the lineup’ protocol Buja suggests.</p>
+<p>We have the opportunity to treat a visualisation as a statistic, visualisation may be compared just as numerical features of models or data summaries can. This is worth doing if methods show statistical distributions are present and not noticed using geographical maps. Results for aggregated areas in disease data are often standardised to be comparable to other areas, and area boundaries are driven by population.</p>
+<p>Therefore we propose the following experiment:</p>
+<p>Factor: 1. Plot Type: - Hexmap and Choropleth map</p>
+<p>Controls: 1. Distribution of estimates: - Normal - Skewed: right; similar to the Cancer Atlas data - Clustered 2. Spatial distribution - Random: values of spatial areas are randomly pulled from relevant distribution - Spatial Dependence: values of spatial areas are randomly pulled from a range surrounding their neighbours, within the relevant distribution</p>
+<p>Replications: 4 of each 6 control combinations, where the four replications are randomised draws of data</p>
+<p>Randomisation: Participants will be shown only 12 (or 24) of the (3<em>2</em>3 =) 18 lineups produced.</p>
+<p>The experiment will form a survey of lineup plots of Australian maps. Each participant will see a random selection of the 6 (or 12) control combinations, they will see both the choropleth map and the hex map.</p>
+<p>To distinguish the effectiveness of the maps, we will contrast the participant’s recognition of the spatial distributions when displayed in each map type. A statistically significant difference in the group means will be computed in R, a software for statistical analysis.</p>
+</div>
+<div id="chapter-3-communicating-the-relationship-between-the-hexmap-and-choropleth-map-animation-algorithm" class="section level4">
+<h4>Chapter 3: Communicating the relationship between the hexmap and choropleth map: animation algorithm</h4>
+<p>Animations will be created using R statistical software.</p>
+</div>
 </div>
 <div id="resources-and-funding-required" class="section level3">
 <h3>Resources and Funding Required</h3>
-</div>
-<div id="individual-contribution-to-the-research-team-where-relevant" class="section level3">
-<h3>Individual Contribution to the Research Team (where relevant)</h3>
+<p>A request for funding will be submitted to undertake the lineup experiment on Amazon Mechanical Turk. We suggest 50 respondents at $8 each, with allowance for 20% Amazon Mechanical Turk (MTurk) fee.</p>
+<p>We will utilise the currently available equipment. A self provided laptop with access to the open source R software. We acknowledge the funding of the Research Training Program (RTP), ACEMS for supporting the author.</p>
 </div>
 <div id="timeline-for-completion-of-the-program" class="section level3">
 <h3>Timeline for Completion of the Program</h3>
+<p>Your schedule for completing the various aspects of your program needs to be illustrated by a timeline so that you, your supervisors, your faculty and the Research Degrees Committee can see your expected rate of progress. The timeline includes each of the tasks identified in Section 4.1 and should normally include monthly targets. As well as your significant milestones (Annual Progress Report date/s, planned Research Seminar and Expected Lodgement Due Date), it could include your coursework requirements, transferable skills and other module training as well as proposed conference attendance and field trip travel. Research Degrees Committee will expect to see a proposed eighteen month* (from admission) full time equivalent completion timeline. Your proposed timeline is to support you in maintaining progress as well as ensuring that your project is realistically scoped within the maximum course completion time frame. Approaches to creating a timeline are many and varied but this is an important section of your application. For a simple and generic example that includes details that you should be incorporating into your own timeline please contact your faculty.</p>
+<div id="proposed-timeline" class="section level4">
+<h4>Proposed Timeline:</h4>
+<p>Beginning June 2018, approximate conclusion December 2019</p>
+<ol style="list-style-type: decimal">
+<li><p>Algorithm for hexmapping Australia</p>
+Algorithm creation: <strong>6 months</strong>, June - December Completed: <strong>3 month</strong>, June - August
+<ul>
+<li>Allocation of polygon area centroids to hex map grid centroids</li>
+<li>Arrangement of centroids to allocate in order</li>
+<li>Incorporate capital city relationships and directional centroid allocations</li>
+</ul>
+Planned research:
+<ul>
+<li>Tidy to allow provision of polygons: <strong>1 month</strong>, September</li>
+<li>Automate tuning for size of hexagons: <strong>2 months</strong>, October - December</li>
+</ul></li>
+<li><p>Testing the effectiveness of the hexmap relative to the choropleth map</p>
+Experiment creation: <strong>3 months</strong>, December - March Completed:
+<ul>
+<li>Factorial Design</li>
+<li>Access established</li>
+</ul>
+Planned:
+<ul>
+<li>Preparation of survey questions: <strong>1 month</strong></li>
+<li>Execution of experiment: <strong>1 week</strong></li>
+<li>Analysis of collected data: <strong>1 month</strong></li>
+<li>Prepare thesis chapter for submission: <strong>1 month</strong></li>
+</ul></li>
+<li><p>Communicating the relationship between the hexmap and choropleth map: animation algorithm</p>
+Animation Application: <strong>2 months</strong>, April - May Planned:
+<ul>
+<li>Apply transformation algorithm, polygons to hexagons: <strong>1 months</strong>,</li>
+<li></li>
+</ul></li>
+</ol>
+<p>Collate thesis chapters</p>
+</div>
 </div>
 </div>
 <div id="reference-list-word-count-not-included-for-proposal" class="section level2">
@@ -176,7 +253,10 @@ $(document).ready(function () {
 <h2>APPENDIX (Word count not included for proposal)</h2>
 <div id="coursework" class="section level3">
 <h3>Coursework</h3>
-<p><em>italics</em> and <em>italics</em> <strong>bold</strong> and <strong>bold</strong> superscript<sup>2</sup> <del>strikethrough</del> <a href="www.rstudio.com">link</a> # Header 1 ## Header 2 ### Header 3 horizontal rule (or slide break): **<em> &gt; block quote </em> unordered list * item 2 + sub-item 1 + sub-item 2 1. ordered list 2. item 2 + sub-item 1 + sub-item 2</p>
+<p>In all cases, your required coursework needs to be based upon a research degree skills audit and a written plan briefly setting out the educational outcomes expected from the coursework. This coursework is planned together with your Supervisors to contribute and provide structure to your overall program of research.</p>
+<p>Courses undertaken at QUT: IFN001 Advanced Information Research Skills (AIRS)</p>
+<p>Courses undertaken via cross institutional study at Monash University: FIT 9133 Programming fundamentals in Python ETC Bayesian time series</p>
+<p><em>italics</em> and <em>italics</em> <strong>bold</strong> and <strong>bold</strong> superscript<sup>2</sup> <del>strike through</del> <a href="www.rstudio.com">link</a> # Header 1 ## Header 2 ### Header 3 horizontal rule (or slide break): **<em> &gt; block quote </em> unordered list * item 2 + sub-item 1 + sub-item 2 1. ordered list 2. item 2 + sub-item 1 + sub-item 2</p>
 </div>
 </div>
 

@@ -1,6 +1,6 @@
 ## THE PROPOSED TITLE
 
-What are good practice in visualising geo-spatial and temporal disease data, and estimates?
+What are good practices in visualising geo-spatial and temporal disease data, and estimates?
 
 ## THE PROPOSED SUPERVISORY TEAM
 
@@ -16,136 +16,193 @@ Science and Engineering Faculty, School of Mathematical Sciences
 Econometrics & Business Statistics Faculty, Monash University.
 
 
-## BACKGROUND AND LITERATURE REVIEW (Maximum 1,400 words)
+## BACKGROUND AND LITERATURE REVIEW (Maximum 1,400 words, 760ish now)
 ### Introductory Statement
 
-Disease data is usually distributed by government organisations as aggregated values for small spatial areas, often defined by political units. A typical approach to plot this data is to make a map with colour representing the numerical value in the spatial area, which is called a choropleth map. The purpose of making the visualisation is to understand the spatial distribution of disease occurrence. When some areas are small and others are large, the reader can get an inaccurate interpretation of the distribution. This research explores ways to better represent the spatial distribution, with a focus on Australian disease mapping. The work is motivated by the Cancer Atlas of Australia.
+Visualising data has contributed to understanding of problems in many fields. Disease data has been visualised for centuries, and often considers the location of occurences of diseases.
+Disease data in Australia is usually distributed by medical registries and government organisations as aggregated values for small spatial areas. Australia utilises ABS Structures, 'areas that the ABS designs specifically for outputting statistics' and Non ABS Structures which are politically determined 'administrative areas for which the ABS is committed to providing a range of statistics'.
 
-### Literature Review
+A typical approach to plot this data related to small areas is to make a map with colour representing the numerical value associated with the spatial area, which is called a choropleth map. The purpose of making the visualisation is to understand the spatial distribution of disease occurrence. When some areas are small and others are large, the reader can get an inaccurate interpretation of the distribution. This research explores ways to better represent the spatial distribution, with a focus on Australian disease mapping. The work is motivated by the Cancer Atlas of Australia.
 
-choropleth map
-cartogram and hexmap
-testing effectiveness of type of plot (for accuracy of reading spatial distribution)
+### Literature Review (Creat bib references file)
 
-*This preliminary review needs to:*
-*critically analyse and discuss the key current and seminal relevant literature describe an existing gap in the knowledge derived from the analysis of the literature, and discuss how your thesis will address the gap. The detail required varies between faculties and you should be guided by your supervisors – usually a range of sources, normally between 20-30 is required. You should ensure that at least some of the sources discussed are from the most current literature (1-3 years).*
+Current methods used for mapping geographical disease data are choropleth maps, and cartograms. Choropleth methods incorporate geographical maps, and represent data using colour, transparency and other methods. The geographical areas represented are kept constant, this keeps spatial relationships intact, as the boundaries which are not geographically motivated may be drawn and coloured but the data of the surrounding neighbours can reasonably be considered related.
+
+Raisz's (1934) rectangular cartograms are not appropriate for Australian areas. Instead we look at a cartogram that 'stretches space continuously according to some distribution on a portion of the earth's surface' [@yearsof]. Toble also states 'the most common use of cartograms is solely for the display and emphasis of a geographic distribution'. Given these cartogram uses and the way Australian area boundaries have been drawn. The need for alternative methods is recognised to maintain spatial relationships for clarity in presenting the spatial distributions.
+
+
+One feature of Australian mapping is that no group of areas are homogenous. The size of the states vary greatly, and this is true for all ABS Structures and Non ABS Structures. However the size of these areas is usually driven by population density. The inverse relationships mean less siginificant areas can take up substantial map space.
+Using most mapping techniques to get a broad perspective of Australia can be misleading, the use of geographical areas misprepresents the spatial distribution of a dataset. 
+Rather than cartogramming, which manipulates the map space of a geogrpahical area according to the value, we will consider representing each area equally on the map space. The use of colour, transparency and symbols is still available.
+
+This project proposes two key stages, algorithm development and tests of effectiveness.
+Proposing ideas is valuable, and the creation of an algorithm to create the maps useful too. However they must be able to communicate spatial distributions effectively. The implementation of the maps will only be helpful if they can allow the people using them to draw conclusions or raise qustions that were not immediately obvious using a geographical map.
+
+To test the effectiveness of types of plots, and the accuracy of reading spatial distributions we will apply visual inference tests.
+These experiments will be based on Hofmann's [] work in visual inference.
+
 
 ### Research Problem (e.g. aims, questions and/or hypotheses)
 
+Three key problems this work will address. 
+
 1. Algorithm for hexmapping Australia
-2. Testing the effectiveness of the hexmap relative to the choropleth map for providing a more accurate reading of spatial distribution for Australia.
+    
+2. Test the effectiveness of the hexmap relative to the choropleth map for providing a more accurate reading of spatial distribution for Australia.
+
 3. Communicating the relationship between the hexmap and choropleth map: animation algorithm
 
 
-The research problem is to find good practices for visualising geo-spatial and temporal data. The focus on disease data will infer aggregation to grouped data points or populations, these areas may also belong to hierarchies. The aim will be to establish methods that allow more accurate visual inference.
-The overarching question may be broken into smaller problems where we will consider separately the visualisations of geospatial disease data, and visualisations of temporal disease data. 
+The algorithm will take geospatial areas in the form of polygons, and create an alternative graphical display of the variable that is believed to be spatially distributed.
 
-We hypothesise that current visualisation methods for aggregated geospatial data are not efficient for visual inference when the areas are heterogeneous.
-We will ask why the visualisation is a good choice to encourage accurate inference of the disease data estimates.
+The display produced by the algorithm will be contrasted with the traditional choropleth map, applying the same colour and transparency methods to represent the data values. The maps will be presented in the form of experiments, to test the effectiveness by asking for interpretation of spatial distributions.
+
+Finally, we recognise the value of presenting users with standard maps that are familiar, if we prove the belief that the alternative method enhances interpretation of the spatial distribution we will aim to maximise the benefits of both.
+The use of animations will allow us to control how people tranform a reconisable map of Australia, or the cities within, into a more sound map for inference. Animation has been used for many years, and is gaining popularity as access to computing power is increasing the amount of applications.
+
 
 
 ## PROGRAM AND DESIGN OF THE RESEARCH INVESTIGATION (Maximum 2,000 words)
 
+We intend to address the program in three chapters:
+
+1. Produce an algorithm for hexmapping Australia
+
+2. Testing the effectiveness of the hexmap relative to the choropleth map
+
+3. Communicating the relationship between the hexmap and choropleth map: animation algorithm
+
 
 ### Objectives, Methodology and Research Plan
 
-This section takes the form of a proposed methodology and research plan, as appropriate to your discipline. 
-The descriptions:
-should clearly identify the tasks to be undertaken and how these address your research problem;
-may be organised in relation to each of the individual aims or questions, and identify specific methods of experimentation for those conducting laboratory based work; 
+*should clearly identify the tasks to be undertaken and how these address your research problem;*
+*may be organised in relation to each of the individual aims or questions, and identify specific methods of experimentation for those conducting laboratory based work; *
 
-And should include a clear if preliminary statement of the theoretical/experimental framework underpinning how you are going to carry out the design / plan.
+*And should include a clear if preliminary statement of the theoretical/experimental framework underpinning how you are going to carry out the design / plan.*
 
-Chap 1: Algorithm for hexmapping Australia
+#### Chapter 1: Algorithm for hexmapping Australia
 
-What is your algorithm
+Produce alternative mapping strategies (cartograms informed by Xiaoyue Cheng).
+While there are visualisations available for spatial data, we can benefit by exploring and creating new displays.
+During the past few months work has progressed that contributes to this first aim. 
+We have been able to achieve a working algorithm for a hexmap of Australia [link Appendix with code].
+This algoirthm takes a set of polygons and creates a hexmap, representing each geographical area with a single hexagon.
+They are arranged so that hexagons are placed to replicate spatial relationships of areas in each city.
 
-Chap 2: Testing the effectiveness of the hexmap relative to the choropleth map
+To create a display, the user needs to provide the desired size of the hexagons for each individual area.
+Using this, we create a grid of all possible locations for relocated, tessalated polygon centroids.
+This grid spans the bounding box of the centroids for the geographical areas.
 
-Explain an experimental design that will allow comparison. 
+The order of allocation depends on the ordered dataset of polygon centroids passed to the function.
+For this set of polygons, the distance has been calculated from each polygon centroid to the closest capital city.
+This approach allows the polygons in each city to progressively expand out.
+It is also a valid aprroach for rural areas, as they have little competition for the grid point closest to their polygon centroid.
 
-Chap 3: Communicating the relationship between the hexmap and choropleth map: animation algorithm
-
-
-Theory based on visual inference papers by Mahbubul and Di. We have the opportunity to treat a visualisation as a statistic,visualisation may be compared just as numerical features of models or data summaries can. This is worth doing if methods show statistical distributions are present and not noticed using geographical maps. Results for aggregated areas in disease data are often standardised to be comparable to other areas, and area boundaries are driven by population. In Australia the area size may be irrelevant due to its strong negative correlation with population, therefore we may abstract the resulting rates and argue that cartograms could be applied. 
-
-The research plan should clearly set out your data collection methods and your approach to data analysis. You may list the specific tasks you will be completing when you undertake the research and how you intend to do the tasks and complete your projects. This would normally take the form of a Design of the Study or Strategy statement. The details of the plan will develop as your candidature progresses. It is critical here that you have a clearly articulated idea of what you are attempting to do. Where the research plan and data collection methods are still being developed it is important to provide an indication of the theoretical framework being used to inform consideration of the plan. This research plan may include:
-• some methodological options and/or theoretical framework to be considered;
-• strategies being followed in order to determine the plan;
-• a clear statement of how the development of the research plan is to be progressed.
-
-Chapter 2:
-Proposed Design of the Study statement:
-Following from visual inference using null plots of skittles.
-population and sampling: visual inference by Amazon mechanical Turk users, selection procedure?;
-Data collection: Survey distributed through Amazon mechanical Turk, 
-Variables will include the map type, spatial distribution, participant id, their identification of a spatial distribution;
-Data analysis: data processing and analyzing will include consider the amount of correct answers by individual participants, consider the amount of correct answers for each map type and spatial distribution features, contrast the difference in means for same spatial distribution features presented in different map types;
-Laboratory procedures: descriptions of standardized procedures and protocols and new or unique procedures; and
-Tools used are Amazon Mechanical Turk, R for statistical analysis and creation of images used in survey
+To complete Chapter 1, we plan to incorporate repelling and attraction [link Xiaoyue Cheng] mechanisms inspired by Xiaoyue Cheng.
+This could allow rural areas to bunch together and allow easier comparison of colours or symbols.
 
 
+#### Chapter 2: Testing the effectiveness of the hexmap relative to the choropleth map
 
-Progession in three stages:
-Produce alternative mapping strategies (cartograms informed by Xiaoyue Cheng)
-Test effectiveness visual inference (informed by Mabubhul)
-Contrast effectiveness of current and alternative methods to provide recommendations
+To test the effectiveness of the alternative mapping techniques, we will produce an experiment hosted on Amazon's (2008) Mechanical Turk.
+The 'concept of a 'null distribution of plots' as the analogue of the null distribution of tests statistics' [stat inf EDA Buja] using 'the lineup' protocol Buja suggests.
+
+We have the opportunity to treat a visualisation as a statistic, visualisation may be compared just as numerical features of models or data summaries can.
+This is worth doing if methods show statistical distributions are present and not noticed using geographical maps.
+Results for aggregated areas in disease data are often standardised to be comparable to other areas, and area boundaries are driven by population.
+
+Therefore we propose the following experiment:
+
+Factor: 
+1. Plot Type:
+    - Hexmap and Choropleth map
+
+Controls: 
+1. Distribution of estimates: 
+    - Normal
+    - Skewed: right; similar to the Cancer Atlas data
+    - Clustered
+2. Spatial distribution
+    - Random: values of spatial areas are randomly pulled from relevant distribution
+    - Spatial Dependence: values of spatial areas are randomly pulled from a range surrounding their neighbours, within the relevant distribution
+
+Replications: 4 of each 6 control combinations, where the four replications are randomised draws of data
+
+Randomisation: Participants will be shown only 12 (or 24) of the (3*2*3 =) 18 lineups produced.
+
+
+The experiment will form a survey of lineup plots of Australian maps.
+Each participant will see a random selection of the 6 (or 12) control combinations, they will see both the choropleth map and the hex map.
+
+
+To distinguish the effectiveness of the maps, we will contrast the participant's recognition of the spatial distributions when displayed in each map type.
+A statistically significant difference in the group means will be computed in R, a software for statistical analysis.
+
+
+#### Chapter 3: Communicating the relationship between the hexmap and choropleth map: animation algorithm
+
+Animations will be created using R statistical software.
 
 
 ### Resources and Funding Required
 
-Includes a statement on how the method/plan is going to be resourced/funded including any technical support to be provided; and the key equipment required. Examples of requirements to be considered may include, but are not limited to, funding and/or access to:
-laboratory equipment and/or specialist facilities
-consumables
-overseas data collection or experimentation
-data sets
-specialist software or equipment
-specialist services (e.g. transcription or translation, analytical services).
+A request for funding will be submitted to undertake the lineup experiment on Amazon Mechanical Turk.
+We suggest 50 respondents at $8 each, with allowance for 20% Amazon Mechanical Turk (MTurk) fee.
 
-Time of researchers funded by RTP, ACEMS
-No laboratory equipment, 
-Access to mechanical turk or crowd platform,
-
-### Individual Contribution to the Research Team (where relevant)
+We will utilise the currently available equipment. A self provided laptop with access to the open source R software.
+We acknowledge the funding of the Research Training Program (RTP), ACEMS for supporting the author.
 
 
 ### Timeline for Completion of the Program
 
-Your schedule for completing the various aspects of your program needs to be illustrated by a timeline so that you, your supervisors, your faculty and the Research Degrees Committee can see your expected rate of progress. The timeline includes each of the tasks identified in Section 4.1 and should normally include monthly targets. As well as your significant milestones (Annual Progress Report date/s, planned Research Seminar and Expected Lodgement Due Date), it could include your coursework requirements, transferrable skills and other module training as well as proposed conference attendance and field trip travel. Research Degrees Committee will expect to see a proposed eighteen month* (from admission) full time equivalent completion timeline.
-Your proposed timeline is to support you in maintaining progress as well as ensuring that your project is realistically scoped within the maximum course completion timeframe. Approaches to creating a timeline are many and varied but this is an important section of your application.
+Your schedule for completing the various aspects of your program needs to be illustrated by a timeline so that you, your supervisors, your faculty and the Research Degrees Committee can see your expected rate of progress.
+The timeline includes each of the tasks identified in Section 4.1 and should normally include monthly targets. 
+As well as your significant milestones (Annual Progress Report date/s, planned Research Seminar and Expected Lodgement Due Date), it could include your coursework requirements, transferable skills and other module training as well as proposed conference attendance and field trip travel. 
+Research Degrees Committee will expect to see a proposed eighteen month* (from admission) full time equivalent completion timeline.
+Your proposed timeline is to support you in maintaining progress as well as ensuring that your project is realistically scoped within the maximum course completion time frame.
+Approaches to creating a timeline are many and varied but this is an important section of your application.
 For a simple and generic example that includes details that you should be incorporating into your own timeline please contact your faculty.
-*course length is dependent on your entry qualifications and assessment by your faculty as discussed and agreed upon with your supervisory team.
 
-Proposed Timeline:
-Section 1: 6 Months
-Alternative Map Strategy:
-Creation: 3 months
-Algorithm, experiment designed and access established,
-Execution of experiment: 1 month
-Allow time for completion, allow for error to be caught and relaunched if necessary, data collection
-Analysis: 1 month
-Explore inference allowed using strategy
-Prepare thesis chapter for submission: 1 month
+#### Proposed Timeline:
 
+Beginning June 2018, approximate conclusion December 2019
 
-Section 2: 6 Months
-Interactive Alternative Strategy: ? OR 
-Application to another set of polygons? Homogeneous? 
-
-Creation: 3 months
-Implementation of moving features? experiment designed,
-Execution of experiment: 1 month
- data collection
-Analysis: 1 month
-Prepare thesis chapter for submission: 1 month
-
-
-Section 3: 5 Months
-Good practices proposal
-Exploration of applications of current methods that could benefit from changes?
+1. Algorithm for hexmapping Australia
+    
+    Algorithm creation: **6 months**, June - December
+    Completed: **3 month**, June - August
+    - Allocation of polygon area centroids to hex map grid centroids
+    - Arrangement of centroids to allocate in order
+    - Incorporate capital city relationships and directional centroid allocations
+    
+    Planned research:
+    - Tidy to allow provision of polygons: **1 month**, September
+    - Automate tuning for size of hexagons: **2 months**, October - December
+   
+    
+2. Testing the effectiveness of the hexmap relative to the choropleth map
+    
+    Experiment creation: **3 months**, December - March
+    Completed:
+    - Factorial Design 
+    - Access established
+    
+    Planned:
+    - Preparation of survey questions: **1 month**
+    - Execution of experiment: **1 week**
+    - Analysis of collected data: **1 month**
+    - Prepare thesis chapter for submission: **1 month**
+   
+   
+3. Communicating the relationship between the hexmap and choropleth map: animation algorithm
+    
+    Animation Application: **2 months**, April - May
+    Planned:
+    - Apply transformation algorithm, polygons to hexagons: **1 months**, 
+    - 
+    
 Collate thesis chapters
-Theoretical discussion of how implementing good practices improves inference
-
+    
 
 
 ## REFERENCE LIST (Word count not included for proposal)
@@ -171,7 +228,7 @@ ETC  Bayesian time series
 *italics* and _italics_
 **bold** and __bold__
 superscript^2^
-~~strikethrough~~
+~~strike through~~
 [link](www.rstudio.com)
 # Header 1
 ## Header 2
