@@ -127,6 +127,7 @@ $(document).ready(function () {
 <div id="the-proposed-title" class="section level2">
 <h2>THE PROPOSED TITLE</h2>
 <p>What are good practices in visualising geo-spatial and temporal disease data, and estimates?</p>
+<p>Comparison of methods for visualising spatio-temporal disease data.</p>
 </div>
 <div id="the-proposed-supervisory-team" class="section level2">
 <h2>THE PROPOSED SUPERVISORY TEAM</h2>
@@ -138,7 +139,7 @@ $(document).ready(function () {
 <h2>BACKGROUND AND LITERATURE REVIEW (Maximum 1,400 words, 760ish now)</h2>
 <div id="introductory-statement" class="section level3">
 <h3>Introductory Statement</h3>
-<p>Visualising data has contributed to understanding of problems in many fields. Disease data has been visualised for centuries, and often considers the location of occurences of diseases. Disease data in Australia is usually distributed by medical registries and government organisations as aggregated values for small spatial areas. Australia utilises ABS Structures, ‘areas that the ABS designs specifically for outputting statistics’ and Non ABS Structures which are politically determined ‘administrative areas for which the ABS is committed to providing a range of statistics’.</p>
+<p>Visualisation of data has contributed to understanding of problems in many fields. Disease data has been visualised for centuries, Tufte [VEIQEN] recognised Dr. John Snow’s dot plot map of cholera occurences provided a ‘direct and poweful testimony about a possible cause-effect relationship’ as it drew attention to a contaminated water pump. While disease maps may seem common now, the visual analysis of spatial distributions has not progressed much further than Disease data in Australia is usually distributed by medical registries and government organisations as aggregated values for small spatial areas. Australia utilises ABS Structures, ‘areas that the ABS designs specifically for outputting statistics’ and Non ABS Structures which are politically determined ‘administrative areas for which the ABS is committed to providing a range of statistics’.</p>
 <p>A typical approach to plot this data related to small areas is to make a map with colour representing the numerical value associated with the spatial area, which is called a choropleth map. The purpose of making the visualisation is to understand the spatial distribution of disease occurrence. When some areas are small and others are large, the reader can get an inaccurate interpretation of the distribution. This research explores ways to better represent the spatial distribution, with a focus on Australian disease mapping. The work is motivated by the Cancer Atlas of Australia.</p>
 </div>
 <div id="literature-review-creat-bib-references-file" class="section level3">
@@ -185,11 +186,11 @@ $(document).ready(function () {
 <h4>Chapter 2: Testing the effectiveness of the hexmap relative to the choropleth map</h4>
 <p>To test the effectiveness of the alternative mapping techniques, we will produce an experiment hosted on Amazon’s (2008) Mechanical Turk. The ‘concept of a ’null distribution of plots’ as the analogue of the null distribution of tests statistics’ [stat inf EDA Buja] using ‘the lineup’ protocol Buja suggests.</p>
 <p>We have the opportunity to treat a visualisation as a statistic, visualisation may be compared just as numerical features of models or data summaries can. This is worth doing if methods show statistical distributions are present and not noticed using geographical maps. Results for aggregated areas in disease data are often standardised to be comparable to other areas, and area boundaries are driven by population.</p>
-<p>Therefore we propose the following experiment:</p>
-<p>Factor: 1. Plot Type: - Hexmap and Choropleth map</p>
-<p>Controls: 1. Distribution of estimates: - Normal - Skewed: right; similar to the Cancer Atlas data - Clustered 2. Spatial distribution - Random: values of spatial areas are randomly pulled from relevant distribution - Spatial Dependence: values of spatial areas are randomly pulled from a range surrounding their neighbours, within the relevant distribution</p>
+<p>Therefore we propose the following experiment for 30 people:</p>
+<p>Factors: 1. Plot Type: - Hexmap and Choropleth map 2. Distribution of estimates: - Normal - Skewed: right; similar to the Cancer Atlas data - Clustered 3. Spatial dependence - Random: values of spatial areas are randomly pulled from relevant distribution - Spatial Dependence: values of spatial areas are randomly pulled from a range surrounding their neighbours, within the relevant distribution</p>
 <p>Replications: 4 of each 6 control combinations, where the four replications are randomised draws of data</p>
-<p>Randomisation: Participants will be shown only 12 (or 24) of the (3<em>2</em>3 =) 18 lineups produced.</p>
+<p>Randomisation: Participants will be shown 24 of the lineups produced. Two reps of each combination of 2 and 3.</p>
+<p>The entire experiment will be replicated with new simulated data sets and a different set of 30 people.</p>
 <p>The experiment will form a survey of lineup plots of Australian maps. Each participant will see a random selection of the 6 (or 12) control combinations, they will see both the choropleth map and the hex map.</p>
 <p>To distinguish the effectiveness of the maps, we will contrast the participant’s recognition of the spatial distributions when displayed in each map type. A statistically significant difference in the group means will be computed in R, a software for statistical analysis.</p>
 </div>
@@ -200,7 +201,7 @@ $(document).ready(function () {
 </div>
 <div id="resources-and-funding-required" class="section level3">
 <h3>Resources and Funding Required</h3>
-<p>A request for funding will be submitted to undertake the lineup experiment on Amazon Mechanical Turk. We suggest 50 respondents at $8 each, with allowance for 20% Amazon Mechanical Turk (MTurk) fee.</p>
+<p>A request for funding will be submitted to undertake the lineup experiment on Amazon Mechanical Turk. We suggest 90 respondents at $5 each,</p>
 <p>We will utilise the currently available equipment. A self provided laptop with access to the open source R software. We acknowledge the funding of the Research Training Program (RTP), ACEMS for supporting the author.</p>
 </div>
 <div id="timeline-for-completion-of-the-program" class="section level3">
@@ -210,39 +211,179 @@ $(document).ready(function () {
 <h4>Proposed Timeline:</h4>
 <p>Beginning June 2018, approximate conclusion December 2019</p>
 <ol style="list-style-type: decimal">
-<li><p>Algorithm for hexmapping Australia</p>
-Algorithm creation: <strong>6 months</strong>, June - December Completed: <strong>3 month</strong>, June - August
-<ul>
-<li>Allocation of polygon area centroids to hex map grid centroids</li>
-<li>Arrangement of centroids to allocate in order</li>
-<li>Incorporate capital city relationships and directional centroid allocations</li>
-</ul>
-Planned research:
-<ul>
-<li>Tidy to allow provision of polygons: <strong>1 month</strong>, September</li>
-<li>Automate tuning for size of hexagons: <strong>2 months</strong>, October - December</li>
-</ul></li>
-<li><p>Testing the effectiveness of the hexmap relative to the choropleth map</p>
-Experiment creation: <strong>3 months</strong>, December - March Completed:
-<ul>
-<li>Factorial Design</li>
-<li>Access established</li>
-</ul>
-Planned:
-<ul>
-<li>Preparation of survey questions: <strong>1 month</strong></li>
-<li>Execution of experiment: <strong>1 week</strong></li>
-<li>Analysis of collected data: <strong>1 month</strong></li>
-<li>Prepare thesis chapter for submission: <strong>1 month</strong></li>
-</ul></li>
-<li><p>Communicating the relationship between the hexmap and choropleth map: animation algorithm</p>
-Animation Application: <strong>2 months</strong>, April - May Planned:
-<ul>
-<li>Apply transformation algorithm, polygons to hexagons: <strong>1 months</strong>,</li>
-<li></li>
-</ul></li>
+<li><em>Algorithm for hexmapping Australia</em></li>
 </ol>
-<p>Collate thesis chapters</p>
+<table>
+<colgroup>
+<col width="8%"></col>
+<col width="61%"></col>
+<col width="12%"></col>
+<col width="14%"></col>
+<col width="2%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Status</th>
+<th>Task</th>
+<th>(Expected) Time</th>
+<th>(Expected) Months</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Completed</td>
+<td>- Allocation of polygon area centroids to hex map grid centroids</td>
+<td><strong>3 months</strong></td>
+<td>June - August</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- useR!2018 Conference</td>
+<td>** 1 week**</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Arrangement of centroids to allocate in order</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- Incorporate capital city relationships and directional centroid allocations</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Planned</td>
+<td>- Tidy to allow provision of polygons</td>
+<td><strong>1 month</strong></td>
+<td>September</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- Automate tuning for size of hexagons</td>
+<td><strong>2 months</strong></td>
+<td>October - November</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Prepare thesis chapter for submission</td>
+<td><strong>1 month</strong></td>
+<td>December</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: decimal">
+<li><em>Testing the effectiveness of the hexmap relative to the choropleth map</em></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Status</th>
+<th>Task</th>
+<th>(Expected) Time</th>
+<th>(Expected) Months</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Completed</td>
+<td>- Factorial Design</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Planned</td>
+<td>- Preparation of survey questions</td>
+<td><strong>2 month</strong></td>
+<td>January - February</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Execution of experiment</td>
+<td><strong>1 month</strong></td>
+<td>March</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- Annual Progress Report</td>
+<td><strong>1 month</strong></td>
+<td>April</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Data Analysis</td>
+<td><strong>2 months</strong></td>
+<td>May - June</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- Prepare thesis chapter for submission</td>
+<td><strong>1 month</strong></td>
+<td>July</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><em>Communicating the relationship between the hexmap and choropleth map: animation algorithm</em></li>
+</ol>
+<table>
+<colgroup>
+<col width="8%"></col>
+<col width="61%"></col>
+<col width="12%"></col>
+<col width="14%"></col>
+<col width="2%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Status</th>
+<th>Task</th>
+<th>(Expected) Time</th>
+<th>(Expected) Months</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Planned</td>
+<td>- Apply transformation algorithm, polygons to hexagons</td>
+<td><strong>2 months</strong></td>
+<td>August - September</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- Prepare thesis chapter for submission</td>
+<td><strong>1 month</strong></td>
+<td>October</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Complete masters thesis</td>
+<td><strong>1 month</strong></td>
+<td>November</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -255,8 +396,7 @@ Animation Application: <strong>2 months</strong>, April - May Planned:
 <h3>Coursework</h3>
 <p>In all cases, your required coursework needs to be based upon a research degree skills audit and a written plan briefly setting out the educational outcomes expected from the coursework. This coursework is planned together with your Supervisors to contribute and provide structure to your overall program of research.</p>
 <p>Courses undertaken at QUT: IFN001 Advanced Information Research Skills (AIRS)</p>
-<p>Courses undertaken via cross institutional study at Monash University: FIT 9133 Programming fundamentals in Python ETC Bayesian time series</p>
-<p><em>italics</em> and <em>italics</em> <strong>bold</strong> and <strong>bold</strong> superscript<sup>2</sup> <del>strike through</del> <a href="www.rstudio.com">link</a> # Header 1 ## Header 2 ### Header 3 horizontal rule (or slide break): **<em> &gt; block quote </em> unordered list * item 2 + sub-item 1 + sub-item 2 1. ordered list 2. item 2 + sub-item 1 + sub-item 2</p>
+<p>Courses undertaken via cross institutional study at Monash University: FIT 9133 Programming fundamentals in Python ETC 4541 Bayesian time series econometrics</p>
 </div>
 </div>
 
