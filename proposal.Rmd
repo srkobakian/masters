@@ -75,43 +75,21 @@ Instead, the size of these areas is usually driven by population density.
 The inverse relationships means less siginificant areas can take up substantial map space.
 Using most mapping techniques to get a broad perspective of Australia can be misleading, the use of geographical areas misprepresents the spatial distribution of a dataset. 
 Rather than cartogramming, which manipulates the map space of a geogrpahical area according to the value, we will consider representing each area equally on the map space. The use of colour, transparency and symbols is still available.
-
-<!-- Drop this, put relevant parts into the bullet points -->
-This project proposes two key stages, algorithm development and tests of effectiveness.
-Proposing ideas is valuable, and the creation of an algorithm to create the maps useful too. However they must be able to communicate spatial distributions effectively. The implementation of the maps will only be helpful if they can allow the people using them to draw conclusions or raise qustions that were not immediately obvious using a geographical map.
-
 To test the effectiveness of types of plots, and the accuracy of reading spatial distributions we will apply visual inference tests.
 These experiments will be based on Hofmann's [] work in visual inference.
 
-<!-- This needs to be expanded into three numbered paragraphs -->
-Three key problems this work will address. 
 
-1. Algorithm for hexmapping Australia
-    
-2. Test the effectiveness of the hexmap relative to the choropleth map for providing a more accurate reading of spatial distribution for Australia.
+#### Aims
 
-3. Communicating the relationship between the hexmap and choropleth map: animation algorithm
+1. *Algorithm for hexmapping Australia:* The algorithm will take geospatial areas in the form of polygons, and create an alternative graphical display of the variable that is believed to be spatially distributed.
 
+2. *Test the effectiveness of the hexmap relative to the choropleth map for providing a more accurate reading of spatial distribution for Australia:* The display produced by the algorithm will be contrasted with the traditional choropleth map, applying the same colour and transparency methods to represent the data values. The maps will be presented in the form of experiments, to test the effectiveness by asking for interpretation of spatial distributions.
 
-The algorithm will take geospatial areas in the form of polygons, and create an alternative graphical display of the variable that is believed to be spatially distributed.
-
-The display produced by the algorithm will be contrasted with the traditional choropleth map, applying the same colour and transparency methods to represent the data values. The maps will be presented in the form of experiments, to test the effectiveness by asking for interpretation of spatial distributions.
-
-Finally, we recognise the value of presenting users with standard maps that are familiar, if we prove the belief that the alternative method enhances interpretation of the spatial distribution we will aim to maximise the benefits of both.
+3. *Communicating the relationship between the hexmap and choropleth map through animation algorithm:* Finally, we recognise the value of presenting users with standard maps that are familiar, if we prove the belief that the alternative method enhances interpretation of the spatial distribution we will aim to maximise the benefits of both.
 The use of animations will allow us to control how people tranform a reconisable map of Australia, or the cities within, into a more sound map for inference. Animation has been used for many years, and is gaining popularity as access to computing power is increasing the amount of applications.
 
 
-
 # Program and Design of the Research Investigation (Maximum 2,000 words)
-
-We intend to address the program in three chapters:
-
-1. Produce an algorithm for hexmapping Australia
-
-2. Testing the effectiveness of the hexmap relative to the choropleth map
-
-3. Communicating the relationship between the hexmap and choropleth map: animation algorithm
-
 
 ### Objectives, Methodology and Research Plan
 
@@ -196,47 +174,40 @@ We acknowledge the funding of the Research Training Program (RTP), ACEMS for sup
 
 ### Timeline for Completion of the Program
 
-Your schedule for completing the various aspects of your program needs to be illustrated by a timeline so that you, your supervisors, your faculty and the Research Degrees Committee can see your expected rate of progress.
-The timeline includes each of the tasks identified in Section 4.1 and should normally include monthly targets. 
-As well as your significant milestones (Annual Progress Report date/s, planned Research Seminar and Expected Lodgement Due Date), it could include your coursework requirements, transferable skills and other module training as well as proposed conference attendance and field trip travel. 
-Research Degrees Committee will expect to see a proposed eighteen month* (from admission) full time equivalent completion timeline.
-Your proposed timeline is to support you in maintaining progress as well as ensuring that your project is realistically scoped within the maximum course completion time frame.
-Approaches to creating a timeline are many and varied but this is an important section of your application.
-For a simple and generic example that includes details that you should be incorporating into your own timeline please contact your faculty.
 
 1. *Algorithm for hexmapping Australia*
-
-| Status      | Task                                                                         |(Expected) Time|(Expected) Months |
-|-------------|------------------------------------------------------------------------------|---------------|------------------|
-| Completed   | - Allocation of polygon area centroids to hex map grid centroids             |**3 months**   |June - August     |
-|             | - useR!2018 Conference                                                       |**1 week**     |                  |
-|             | - Arrangement of centroids to allocate in order                              |               |                  |
-|             | - FIT9133: Programming fundamentals in Python: Semester 2, Monash University |               |                  | 
-|             | - Incorporate capital city relationships and directional centroid allocations|               |                  | 
-| Planned     | - Tidy to allow provision of polygons                                        |**1 month**    |September         | 
-|             | - Automate tuning for size of hexagons                                       |**2 months**   |October - November| 
-|             | - Prepare thesis chapter for submission                                      |**1 month**    |December          |
-
 2. *Testing the effectiveness of the hexmap relative to the choropleth map*
-
-| Status      | Task                                                                         |(Expected) Time|(Expected) Months |
-|-------------|------------------------------------------------------------------------------|---------------|------------------|
-| Completed   | - Factorial Design                                                           |               |                  |
-| Planned     | - Preparation of survey questions                                            |**2 month**    |January - February|
-|             | - ETC4541: Bayesian time series econometrics: Semester 1, Monash University  |               |                  |
-|             | - Execution of experiment                                                    |**1 month**    |March             |
-|             | - Annual Progress Report                                                     |**1 month**    |April             |
-|             | - Data Analysis                                                              |**2 months**   |May - June        |
-|             | - Prepare thesis chapter for submission                                      |**1 month**    |July              |
-
 3. *Communicating the relationship between the hexmap and choropleth map: animation algorithm*
+A. Addition activities: coursework units, deadlines, thesis preparation
 
-| Status      | Task                                                                         |(Expected) Time|(Expected) Months |
-|-------------|------------------------------------------------------------------------------|---------------|------------------|
-| Planned     | - Apply transformation algorithm, polygons to hexagons                       |**2 months**   |August - September|
-|             | - Prepare thesis chapter for submission                                      |**1 month**    |October           |
-|             | - Complete masters thesis                                                    |**1 month**    |November          |
-  
+
+|(Expected) Months |(Expected) Time|Task                                                                             | Status      |
+|------------------|---------------|---------------------------------------------------------------------------------|-------------|
+|                  |**1 week**     |- (A) useR!2018 Conference                                                       |             |
+|*Semester 2 2018* |               |- (A) FIT9133: Programming fundamentals in Python: Semester 2, Monash University |             |
+|June - August     |**3 months**   |- (1) Allocation of polygon area centroids to hex map grid centroids             | Completed   |
+|                  |**1 week**     |- (A) useR!2018 Conference                                                       |             |
+|                  |               |- (1) Arrangement of centroids to allocate in order                              |             |
+|                  |               |- (1) Incorporate capital city relationships and directional centroid allocations|             |
+|September         |**1 month**    |- (1) Tidy to allow provision of polygons                                        | Planned     |
+|October - November|**2 months**   |- (1) Automate tuning for size of hexagons                                       |             |
+|December          |**1 month**    |- (A) Prepare thesis chapter for submission                                      |             |
+|January - February|**2 month**    |- (2) Preparation of survey questions                                            | Planned     |
+
+|*Semester 1 2019* |               |- (A) ETC4541: Bayesian time series econometrics: Semester 1, Monash University  |             |
+|------------------|---------------|---------------------------------------------------------------------------------|-------------|
+|March             |**1 month**    |- (2) Execution of experiment                                                    |             |
+|April             |**1 month**    |- (A) Annual Progress Report                                                     |             |
+|May - June        |**2 months**   |- (2) Data Analysis                                                              |             |
+|July              |**1 month**    |- (A) Prepare thesis chapter for submission                                      |             |
+
+|*Semester 2 2019*                                                                                                   |             |
+|------------------|---------------|---------------------------------------------------------------------------------|-------------|
+|(Expected) Months |(Expected) Time|Task                                                                             | Status      |
+|August - September|**2 months**   |- (3) Apply transformation algorithm, polygons to hexagons                       | Planned     |
+|October           |**1 month**    |- (3) Prepare thesis chapter for submission                                      |             |
+|November          |**1 month**    |- (A) Complete masters thesis                                                    |             |
+
   
 
 
