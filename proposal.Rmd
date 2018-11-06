@@ -183,7 +183,6 @@ A. Addition activities: coursework units, deadlines, thesis preparation
 
 |(Expected) Months |(Expected) Time|Task                                                                             | Status      |
 |------------------|---------------|---------------------------------------------------------------------------------|-------------|
-|                  |**1 week**     |- (A) useR!2018 Conference                                                       |             |
 |*Semester 2 2018* |               |- (A) FIT9133: Programming fundamentals in Python: Semester 2, Monash University |             |
 |June - August     |**3 months**   |- (1) Allocation of polygon area centroids to hex map grid centroids             | Completed   |
 |                  |**1 week**     |- (A) useR!2018 Conference                                                       |             |
