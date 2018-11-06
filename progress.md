@@ -28,6 +28,7 @@ Administration
     - finding distance between centroid and available grid points
 
 ## JULY
+
 1. Began writing code for:
     - finding the closest capital city
     - reordered allocation of hexagons, ascending distance from closest capital city
@@ -38,6 +39,7 @@ A. FIT9133: Programming fundamentals in Python: Semester 2, Monash University
 1. Attempt smoothing null data to contrast to spatially distributed data
 
 ## AUGUST
+
 1. Read in sf object
     - ensure no null geometries
     - project data in Australian standard projection
@@ -47,6 +49,7 @@ A. FIT9133: Programming fundamentals in Python: Semester 2, Monash University
 
 
 ##  SEPTEMBER
+
 1. *Tidy to allow provision of polygons*
 1. Created SugaRbag package; to organise and document functions that implement the hexmap algorithm
     - include capital cities as a data set
@@ -57,6 +60,7 @@ A. FIT9133: Programming fundamentals in Python: Semester 2, Monash University
 
 
 ##  OCTOBER
+
 1. *Automate tuning for size of hexagons*
 1. Improving SugaRbag package;
     - created function to filter grid points, ensures at least one point is returned
@@ -67,14 +71,52 @@ A. FIT9133: Programming fundamentals in Python: Semester 2, Monash University
     - check buffer distance is appropriate
     - vastly improved buffer grid, rolling average minimum and maximum of the centroids in Australian border
     - created a sandbox for easier testing and implementation of changes
+
 A. Completed exam for FIT9133
 
 ##  NOVEMBER
-*A. Prepare thesis chapter for submission*
-1. Allowed faceting map in Victoria by the SA4 levels 
-
-##  JANUARY
-(2) Preparation of survey questions                                            
-A. ETC4541: Bayesian time series econometrics: Semester 1, Monash University  
 
 
+1. Create a main function to call others
+    - Provide output as a list of two, the hexmap allocations and tibble with geometry column
+    
+1. *Allowed faceting map in Victoria by the SA4 levels* 
+A. *Prepare thesis chapter for submission*
+
+##  JANUARY - FEBRUARY
+
+2. *Preparation of survey questions*
+
+## MARCH
+
+A. *ETC4541: Bayesian time series econometrics: Semester 1, Monash University*
+
+## APRIL 
+
+A. *Annual Progress Report*                         
+
+## MAY
+
+2. *Execution of experiment*              
+2. *Data Analysis*                
+
+## JUNE
+
+2. *Data Analysis*  
+A. *Complete exam for ETC4541*
+
+## JULY
+
+A. *Prepare thesis chapter for submission* 
+
+## AUGUST - SEPTEMBER
+
+3. *Apply transformation algorithm, polygons to hexagons*
+
+## OCTOBER
+
+3. *Prepare thesis chapter for submission*               
+
+## NOVEMBER
+
+A. *Complete masters thesis*                             
