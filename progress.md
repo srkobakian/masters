@@ -79,6 +79,8 @@ A. Completed exam for FIT9133
 
 1. Create a main function to call others
     - Provide output as a list of two, the hexmap allocations and tibble with geometry column
+    - create facetted maps using geofacet
+    - create plots of geography and hexagons
     
 1. *Allowed faceting map in Victoria by the SA4 levels* 
 A. *Prepare thesis chapter for submission*
