@@ -79,6 +79,8 @@ A. Completed exam for FIT9133
 
 1. Create a main function to call others
     - Provide output as a list of two, the hexmap allocations and tibble with geometry column
+    - allow shape files in environment to be provided
+    - show user the prgoression through steps
     - create facetted maps using geofacet
     - create plots of geography and hexagons
     
