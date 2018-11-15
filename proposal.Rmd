@@ -113,7 +113,7 @@ Using most mapping techniques to get a broad perspective of Australia can be mis
 We will represent each area equally on the map space. The use of colour, transparency and symbols will still available for variables.
 
 To test the effectiveness of these visualisations we will examine the accuracy of reading spatial distributions. Applying visual inference tests will measure the increase in accurate understanding of spatial distributions
-These experiments will be based on Hofmann's [GTPCCD] work in visual inference.
+These experiments will be based on Hofmann's [@GTPCCD] work in visual inference.
 
 
 #### Aims
