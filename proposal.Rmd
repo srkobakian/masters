@@ -13,7 +13,7 @@ link-citations: true
 
 # The Proposed Title
 
-New algorithms, and a study comparing effectiveness of methods, for visualising Australian spatio-temporal disease data.
+New algorithms for effectively visualising Australian spatio-temporal disease data.
 
 # The Proposed Supervisory Team
 
@@ -45,48 +45,20 @@ Many disease data sets are distributed in aggregate on political areas rather th
 
 ### Literature Review
 
-<!-- Give history of choropleth maps
--->
-
-Two visualisations commonly used for mapping geographical disease data are choropleth maps, and cartograms.
-Choropleth methods use geographical maps, and represent data using colour, transparency and other methods.
-The geographical areas are represented according to their geographic shape, size and location, this keeps spatial relationships intact, and the data of the surrounding neighbours can reasonably be considered related.
-
+#### Statistical maps of geographic areas
 
 <!-- Introduce cartograms and creating using algorithms. Reference main cartogram papers. Consider references of these paper and those that have cited them.
 -->
 
-Waldo Tobler [-@TFYCC] explores the development from choropleth maps to cartograms and differentiates their uses based on the focus of the cartogram on the distribution in the data, in relation to the geography. 
+Waldo Tobler [-@TFYCC] explores the development process from choropleth maps to cartograms and considers the situations which favour either display. The visualisations commonly used for mapping geographical data are choropleth maps and cartograms.
+Choropleth methods produce geographically accurate maps, and represent data using colour, transparency and other methods.
+The geographical areas are presented according to their geographic shape, size and location. This keeps spatial relationships intact, and the data of the surrounding neighbours can reasonably be considered related.
+Alternatively, cartograms are used to focus on the spatial distribution within the geographically related data. The geographical features are foregone, in order to visually analysis the spatial distribution and emphasise the statistics.
+
+
 Cartograms have been used as a visual display since 1851 [@TFYCC]. 
-Sabrina Nusrat and Stephen G. Kobourov [-@ECE] recognise four types of cartograms: Contiguous, Non-Contiguous, Dorling and Rectangle. They differ based on the preservation of shape, topography and the statistical accuracy.
-The types of cartograms and the algorithms used are contrasted using time, error, and subject preferences. All of these methods change the size of the areas to represent a statistic. Rectangular[@ORC] cartograms have consistent shapes to represent regions and sizes differ to represent a statistic. 
-
-The term mosaic cartograms is introduced [@MDAC] to describe the alternative cartogram display their algorithm produces. It relies on Carr, Olsen and White's [-@HMMDUBGD] ideas of a tessellation of tiles, of uniform size, that represent the same amount of geographical area as the geographical map. There is as little disruption as possible to the area adjacencies.
-
-
-
-
-<!-- Introduce cartogram applications. Well used by news outlets, especially online with ability to interact
--->
-
-
-While move toward alternative mapping techniques has progressed with the accessibility of animations.
-
-They are regularly used in the United States, most recently to present results and race calls from The Associated Press for the mid-term elections [@HERDTC] along with the 2017 primary elections [@MTRRCTH]. 
-
-The authors follow with the paper describing the applications of cartograms [-@TSOTAIC] and discuss social, political and epidemiological applications. They cite the 'cartogram can better show the distribution' [@CBACCC] when considering the spread of a disease. 
-
-
-
-
-<!-- Introduce validating algorithm and display. note how animations are used - reduces disorientation when animating between geography and alternative. 
--->
-
-
-The ability to project data into a commonly known form, the geography, and then transform it using animation to a more appropriate representation allows deeper understanding of the data. 
-
-
-
+Sabrina Nusrat and Stephen G. Kobourov [-@ECE] recognise four types of cartograms: Contiguous, Non-Contiguous, Dorling and Rectangle.
+All of these methods change the size of the areas to represent a statistic. Rectangular [@ORC] cartograms have consistent shapes to represent regions and sizes differ to represent a statistic, Dorling cartograms use circles [@TVSSS]. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work that finds hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles, which their design employs. These maps also provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
 
 
 
@@ -94,10 +66,50 @@ The ability to project data into a commonly known form, the geography, and then 
 Australia has a unique population distribution, spatial relationships which are population based are also unique. (Attempt to apply dorling algorithms to SA areas) 
 -->
 
-Daniel Dorling's Parliamentary Constituency Area Population Cartogram allows one circle for each area. [@TVSSS] The size of these circles differs based on the population, these have little variance. It maintains the spatial distribution for each area is 'touching as many others that it originally
-neighboured as possible while touching as few as possible that it did not.'
+Daniel Dorling's cartograms allow one circle for each area [@TVSSS]. The size of these circles differs based on the value of the statistic. It maintains the spatial distribution for each area by 'touching as many others that it originally neighboured as possible while touching as few as possible that it did not.' This concept is key to the visual analysis of spatial distributions, especially for the visual analysis of small geographic areas.
 
 "On any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye (Figures 3.8 and 3.9). The problem is particularly acute in countries such as Canada and Australia, but still fundamental in all other regions of the world. The argument is not that the conventional map distorts the message; it is that it cannot correctly convey even a very small fraction of it." [@TVSSS]
+
+
+
+#### Evaluating alternative representations
+
+The cartogram methods differ based on the preservation of shape, topography and the statistical accuracy. The effectiveness of the methods have been contrasted [@ECE] and the algorithms have been evaluated in terms of time and error, and the visualisation subject preferences. 
+These measures may now be supplmented with a new approach.
+
+<!-- Heike Hoffman visual inference 
+-->
+
+Graphical Inference is introduced by Wickham, Cook, Hofmann and Buja to determine if patterns that appear in visualisations are 'really there'[-@GIFI]. Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods.
+
+The question: "Is there a spatial trend?" is historically associated with choropleth maps [@GIFI]. An example has been displayed of one true data set of spatial data, presented in a line-up of null plots. These tests acknowledge a trend, pattern or relationship in the true data, if it appears significantly different from the null plots in the line-up.
+
+Adapting this approach could be used to test the effectiveness of the choropleth map, against an alternative graphic. By contrasting the results of the choropleth and alternative line-ups that present the same true data in line-ups of null plots. This contrast could be used to test statistically the effectiveness of thevisual display in communicating spatial data.
+The R package, ggplot2 [@GG2], is able to create plots and line-ups of plots that can be used in this testing.
+
+
+
+#### Enchancing applications using animations
+
+<!-- Introduce cartogram applications. Well used by news outlets, especially online with ability to interact
+-->
+
+
+They are regularly used in the United States, most recently to present results and race calls from The Associated Press for the mid-term elections [@HERDTC] along with the 2017 primary elections [@MTRRCTH]. 
+
+Applications of cartograms [@TSOTAIC] have been seen in social, political and epidemiological contexts.
+The Christopher Kocmoud, and Donald House, are cited stating 'cartogram can better show the distribution' [@CBACCC] when considering the spread of a disease. 
+The move toward alternative mapping techniques has progressed with the accessibility of animations. Especially in the statistical cumputing community which has recently been improved with the development of gganimate [@GGA].
+
+
+
+<!-- Introduce validating algorithm and display. note how animations are used - reduces disorientation when animating between geography and alternative. 
+-->
+
+
+Projecting data into the recognisable form of the geography, and then transforming to an alternative representation allows deeper understanding of the data. Thomas Lin Pedersen [@TGA] suggests animating visualisations as it 'demands attention'. This is especially convenient to direct attention, as animations do not assume captive audiences, instead inform by narrating the intended message communicated by the visualisation.
+
+
 
 
 
