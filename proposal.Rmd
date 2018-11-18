@@ -70,6 +70,10 @@ Daniel Dorling's cartograms allow one circle for each area [@TVSSS]. The size of
 
 "On any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye (Figures 3.8 and 3.9). The problem is particularly acute in countries such as Canada and Australia, but still fundamental in all other regions of the world. The argument is not that the conventional map distorts the message; it is that it cannot correctly convey even a very small fraction of it." [@TVSSS]
 
+Journalist Nick Evershed uses the headline "Australian electorates vary greatly in size, which makes it extremely difficult to present election results geographically. We've come up with a solution" [-@BBBEM]. This prefaces a uniquely Australian issue. The strong disparity in the sizes of the electorates, ranging between 30 and 1,587,758 sq km, immediately led to the consideration of a cartogram display. Citing the prevalence of cartograms in the US media, however in the context of Australia they are quickly are discounted. Evershed points to 150hexagons.com as a step toward a display that is more representative and emphasises each electorate equally, however Australia become unrecognisable. This inspired Evershed and Dance's interactive map [@AERIP] where each electorate is represented by a displaced circle, that are sized according the population. 
+
+
+
 
 
 #### Evaluating alternative representations
@@ -80,13 +84,14 @@ These measures may now be supplmented with a new approach.
 <!-- Heike Hoffman visual inference 
 -->
 
-Graphical Inference is introduced by Wickham, Cook, Hofmann and Buja to determine if patterns that appear in visualisations are 'really there'[-@GIFI]. Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods.
+Graphical Inference is introduced by Wickham, Cook, Hofmann and Buja to determine if patterns that appear in visualisations are 'really there'[-@GIFI]. Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods [@GTPCCD]. Graphical Inference is a modern statistical procedure to visually recognise structure in data.
 
 The question: "Is there a spatial trend?" is historically associated with choropleth maps [@GIFI]. An example has been displayed of one true data set of spatial data, presented in a line-up of null plots. These tests acknowledge a trend, pattern or relationship in the true data, if it appears significantly different from the null plots in the line-up.
 
-Adapting this approach could be used to test the effectiveness of the choropleth map, against an alternative graphic. By contrasting the results of the choropleth and alternative line-ups that present the same true data in line-ups of null plots. This contrast could be used to test statistically the effectiveness of thevisual display in communicating spatial data.
+Adapting this approach could be used to test the effectiveness of the choropleth map, against an alternative graphic. By contrasting the results of the choropleth and alternative line-ups that present the same true data in line-ups of null plots. This contrast could be used to test statistically the effectiveness of the visual display in communicating spatial data.
 The R package, ggplot2 [@GG2], is able to create plots and line-ups of plots that can be used in this testing.
 
+This study also endorses Amazon Mechanical Turk [-@AMT] as a source of capable workers to view the line-ups as an "univolved observer" is necessary to validate the design.
 
 
 #### Enchancing applications using animations
@@ -111,21 +116,17 @@ Projecting data into the recognisable form of the geography, and then transformi
 
 
 
-
-
 ### Research Problem (e.g. aims, questions and/or hypotheses)
 
 <!-- Why Australia breaks cartograms -->
-One feature of Australian maps is that no group of areas are homogeneous.
-The size of the states vary greatly, and this is feature persists for all ABS Structures and Non ABS Structures. 
-Instead, the size of these areas is usually driven by population density.
-The inverse relationships means less significant areas can take up substantial map space.
-Using most mapping techniques to get a broad perspective of Australia can be misleading, the use of geographical areas misrepresents the spatial distribution of a dataset. 
+The Australian population has congregated in the capital cities, and significant cities in each state. This pattern has resulted in very dense population centres, and sparsely populated rural areas.
+Population groups have been created at many levels, to approximate equal population in each group, the geographical bounds now used statistically are extremely heterogeneous.
+The size of the states, the largest geographical division, also vary greatly, and this is feature persists for all ABS Structures and Non ABS Structures. 
+This relationship between the Australian population and geographical area results in a wide distribution of the map space.
+Using most mapping techniques to get a broad perspective of Australia can be misleading, when the use of geographical areas misrepresents the spatial distribution of a dataset. 
 
-We will represent each area equally on the map space. The use of colour, transparency and symbols will still available for variables.
+A possible alternative will represent each area equally on the map space. The use of colour, transparency and symbols will still available for variables.
 
-To test the effectiveness of these visualisations we will examine the accuracy of reading spatial distributions. Applying visual inference tests will measure the increase in accurate understanding of spatial distributions
-These experiments will be based on Hofmann's [@GTPCCD] work in visual inference.
 
 
 #### Aims
@@ -147,29 +148,42 @@ The use of animations will allow us to control how people transform a recognisab
 
 *And should include a clear if preliminary statement of the theoretical/experimental framework underpinning how you are going to carry out the design / plan.*
 
-#### Chapter 1: Algorithm for hexmapping Australia
+#### Aim 1: Algorithm for hexmapping Australia
 
 Produce alternative mapping strategies (cartograms informed by Xiaoyue Cheng).
 While there are visualisations available for spatial data, we can benefit by exploring and creating new displays.
 During the past few months work has progressed that contributes to this first aim. 
-We have been able to achieve a working algorithm for a hexmap of Australia [link Appendix with code].
-This algorithm takes a set of polygons and creates a hexmap, representing each geographical area with a single hexagon.
-They are arranged so that hexagons are placed to replicate spatial relationships of areas in each city.
+We have been able to achieve a working algorithm for a hexmap of Australia [@SB].
+This algorithm takes a set of polygons and creates a map of tesselatted hexagons, representing a single geographical area with a single hexagon.
+They are arranged to replicate spatial relationships of areas in each city.
 
-To create a display, the user needs to provide the desired size of the hexagons for each individual area.
-Using this, we create a grid of all possible locations for relocated, tessellated polygon centroids.
-This grid spans the bounding box of the centroids for the geographical areas.
+The following tasks have been achieved:
 
-The order of allocation depends on the ordered dataset of polygon centroids passed to the function.
-For this set of polygons, the distance has been calculated from each polygon centroid to the closest capital city.
-This approach allows the polygons in each city to progressively expand out.
-It is also a valid approach for rural areas, as they have little competition for the grid point closest to their polygon centroid.
 
-To complete Chapter 1, we plan to incorporate repelling and attraction [link Xiaoyue Cheng] mechanisms inspired by Xiaoyue Cheng.
+1. Began SugaRbag package; to organise and document functions that implement the hexmap algorithm
+    - ensure no null geometries (named areas with no location)
+    - project data in Australian standard projection
+    - automate hexagon size
+    - find centroids (central point) of projected polygons
+    - include capital cities as a data set
+    - included simplified data for SA2 in 2011 and 2016
+    - allowed data to be provided in different formats eg. Rda or ESRI
+    - filtering grid points, ensures at least one point is returned
+    - implemented algebraic method to filter grid for a 60 degree slice of a circle around centroid
+    - allow users to provide their own focal points eg. centre of Australia, regional cities
+    - check buffer distance is appropriate
+    - vastly improved buffer grid, rolling average minimum and maximum of the centroids in Australian border
+    - output the hexmap allocations and shape information
+    - show user the prgoression through steps
+    - create facetted maps using geofacet
+    - create plots of geography and hexagons
+    
+
+To extend Chapter 1, we plan to incorporate repelling and attraction [link Xiaoyue Cheng] mechanisms inspired by Xiaoyue Cheng.
 This could allow rural areas to bunch together and allow easier comparison of colours or symbols.
 
 
-#### Chapter 2: Testing the effectiveness of the hexmap relative to the choropleth map
+#### Aim 2: Testing the effectiveness of the hexmap relative to the choropleth map
 
 To test the effectiveness of the alternative mapping techniques, we will produce an experiment hosted on Amazon's (2008) Mechanical Turk.
 The 'concept of a 'null distribution of plots' as the analogue of the null distribution of tests statistics' [stat inf EDA Buja] using 'the line-up' protocol Buja suggests.
@@ -207,7 +221,7 @@ To distinguish the effectiveness of the maps, we will contrast the participant's
 A statistically significant difference in the group means will be computed in R, a software for statistical analysis.
 
 
-#### Chapter 3: Communicating the relationship between the hexmap and choropleth map: animation algorithm
+#### Aim 3: Communicating the relationship between the hexmap and choropleth map: animation algorithm
 
 Animations will be created using R statistical software.
 
