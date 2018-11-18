@@ -11,6 +11,8 @@ biblio-style: chicago
 link-citations: true
 ---
 
+\pagebreak
+
 # The Proposed Title
 
 New algorithms for effectively visualising Australian spatio-temporal disease data.
@@ -29,7 +31,8 @@ Science and Engineering Faculty, School of Mathematical Sciences
 Econometrics & Business Statistics Faculty, Monash University.
 
 
-# Background and Literature Review(Maximum 1,400 words, 760ish now)
+# Background and Literature Review
+
 ### Introductory Statement
 
 <!-- 
@@ -38,10 +41,11 @@ Historical context
 Data visualisations have enhanced the understanding of problems in many scientific fields. A classic example in disease data is the map of London, pinpointing water pump locations among cholera occurrences, made by Dr John Snow, that made the case for the cause being contaminated water. A nice discussion of this can be found in [@VEIQEN].
 
 <!-- 
-Your data, and the problem to be addressed
+The data, and the problem to be addressed
 -->
 Many disease data sets are distributed in aggregate on political areas rather than occurrence location. This may be for various reasons, such as privacy, and also ability to respond often depends on the political entity responsible. This data has measurements associated with small spatial areas, and the typical visualisation is a choropleth map, where areas are coloured by the numerical value. A purpose of making the map is to understand the spatial distribution of disease occurrence, and also locate disease clusters where remedial action may be needed. The problem is, especially for Australia, is that the spatial distribution is obscured by the prevalence of vastly different sizes of areas. This research explores more effective visualisation to better represent the spatial distribution, with a focus on Australian disease mapping. The work is motivated by the Cancer Atlas of Australia, which presents the spatial patterns of Incidences of many cancers in Australia.
 
+\pagebreak
 
 ### Literature Review
 
@@ -50,15 +54,17 @@ Many disease data sets are distributed in aggregate on political areas rather th
 <!-- Introduce cartograms and creating using algorithms. Reference main cartogram papers. Consider references of these paper and those that have cited them.
 -->
 
-Waldo Tobler [-@TFYCC] explores the development process from choropleth maps to cartograms and considers the situations which favour either display. The visualisations commonly used for mapping geographical data are choropleth maps and cartograms.
-Choropleth methods produce geographically accurate maps, and represent data using colour, transparency and other methods.
-The geographical areas are presented according to their geographic shape, size and location. This keeps spatial relationships intact, and the data of the surrounding neighbours can reasonably be considered related.
-Alternatively, cartograms are used to focus on the spatial distribution within the geographically related data. The geographical features are foregone, in order to visually analysis the spatial distribution and emphasise the statistics.
+The visualisations commonly used for mapping geographical data are choropleth maps and cartograms.
+Waldo Tobler [-@TFYCC] explores the progression from choropleth maps to cartograms and considers the situations which favour either display. 
+Choropleth methods are geographically accurate maps, and represent data using colour, transparency and other methods.
+Geographical areas maintain their geographic shape, size and location.
+This preserves spatial relationships, and data for the surrounding neighbours can be reasonably considered related.
+Alternatively, cartograms are used to focus on the spatial distribution within the geographically related data. Geographical features are foregone in order to prioritse spatial distributions of the data.
 
 
-Cartograms have been used as a visual display since 1851 [@TFYCC]. 
+Cartograms have been implemented since 1851 [@TFYCC]. 
 Sabrina Nusrat and Stephen G. Kobourov [-@ECE] recognise four types of cartograms: Contiguous, Non-Contiguous, Dorling and Rectangle.
-All of these methods change the size of the areas to represent a statistic. Rectangular [@ORC] cartograms have consistent shapes to represent regions and sizes differ to represent a statistic, Dorling cartograms use circles [@TVSSS]. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work that finds hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles, which their design employs. These maps also provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
+All of these methods change the size of the areas to represent a statistic. Rectangular [@ORC] cartograms represent regions where Dorling cartograms use circles [@TVSSS]. Consistent shapes are used, but sizes differ to represent a statistic. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work that finds hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles. These maps also provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
 
 
 
@@ -66,32 +72,28 @@ All of these methods change the size of the areas to represent a statistic. Rect
 Australia has a unique population distribution, spatial relationships which are population based are also unique. (Attempt to apply dorling algorithms to SA areas) 
 -->
 
-Daniel Dorling's cartograms allow one circle for each area [@TVSSS]. The size of these circles differs based on the value of the statistic. It maintains the spatial distribution for each area by 'touching as many others that it originally neighboured as possible while touching as few as possible that it did not.' This concept is key to the visual analysis of spatial distributions, especially for the visual analysis of small geographic areas.
-
-"On any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye (Figures 3.8 and 3.9). The problem is particularly acute in countries such as Canada and Australia, but still fundamental in all other regions of the world. The argument is not that the conventional map distorts the message; it is that it cannot correctly convey even a very small fraction of it." [@TVSSS]
-
-Journalist Nick Evershed uses the headline "Australian electorates vary greatly in size, which makes it extremely difficult to present election results geographically. We've come up with a solution" [-@BBBEM]. This prefaces a uniquely Australian issue. The strong disparity in the sizes of the electorates, ranging between 30 and 1,587,758 sq km, immediately led to the consideration of a cartogram display. Citing the prevalence of cartograms in the US media, however in the context of Australia they are quickly are discounted. Evershed points to 150hexagons.com as a step toward a display that is more representative and emphasises each electorate equally, however Australia become unrecognisable. This inspired Evershed and Dance's interactive map [@AERIP] where each electorate is represented by a displaced circle, that are sized according the population. 
-
+Daniel Dorling's cartograms allow one circle for each area [@TVSSS]. It maintains the spatial distribution for each area by 'touching as many others that it originally neighboured as possible while touching as few as possible that it did not.' This concept is key to the visual analysis of spatial distributions, especially for the visual analysis of small geographic areas. However, "on any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye" [@TVSSS]. Dorling mentions choropleth geographical maps of Australia and Canada are particularly affected.
+Journalist Nick Evershed uses the headline "Australian electorates vary greatly in size, which makes it extremely difficult to present election results geographically. We've come up with a solution" [-@BBBEM]. This prefaces a uniquely Australian issue. As sizes of the electorates range between 30 and 1,587,758 sq km a cartogram display was considered. Citing the prevalence of cartograms in the US media, however in the context of Australia most algorithms produced an unrecognisable shape. Evershed points to 150hexagons.com as a step toward a display that is more representative and emphasises each electorate equally. This inspired Evershed and Dance's interactive map [@AERIP] where each electorate is represented by a displaced circle, that are sized according the population. It also features an underlaid map of Australian geographies to aid interpretation.
 
 
 
 
 #### Evaluating alternative representations
 
-The cartogram methods differ based on the preservation of shape, topography and the statistical accuracy. The effectiveness of the methods have been contrasted [@ECE] and the algorithms have been evaluated in terms of time and error, and the visualisation subject preferences. 
-These measures may now be supplmented with a new approach.
+The cartogram methods differ based on the preservation of shape, topography and the statistical accuracy. The effectiveness of the methods have been contrasted [@ECE] and the algorithms have been evaluated in terms of time and error, and the visualisation subject preferences. Xiaoyue Cheng [-@IVMVTSAD] recognises that methods must be supplemented with algorithms, yet there are few available. The author provides a shiny application that helps to both create and evaluate a contiguous cartogram.
+These measures may now be supplemented with a new approach.
 
 <!-- Heike Hoffman visual inference 
 -->
 
-Graphical Inference is introduced by Wickham, Cook, Hofmann and Buja to determine if patterns that appear in visualisations are 'really there'[-@GIFI]. Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods [@GTPCCD]. Graphical Inference is a modern statistical procedure to visually recognise structure in data.
+Graphical Inference is introduced by Wickham, Cook, Hofmann and Buja to determine if patterns that appear in visualisations are 'really there' [-@GIFI]. Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods [@GTPCCD]. Graphical Inference is a modern statistical procedure to visually recognise structure in data.
 
 The question: "Is there a spatial trend?" is historically associated with choropleth maps [@GIFI]. An example has been displayed of one true data set of spatial data, presented in a line-up of null plots. These tests acknowledge a trend, pattern or relationship in the true data, if it appears significantly different from the null plots in the line-up.
 
 Adapting this approach could be used to test the effectiveness of the choropleth map, against an alternative graphic. By contrasting the results of the choropleth and alternative line-ups that present the same true data in line-ups of null plots. This contrast could be used to test statistically the effectiveness of the visual display in communicating spatial data.
 The R package, ggplot2 [@GG2], is able to create plots and line-ups of plots that can be used in this testing.
 
-This study also endorses Amazon Mechanical Turk [-@AMT] as a source of capable workers to view the line-ups as an "univolved observer" is necessary to validate the design.
+This study also endorses Amazon Mechanical Turk [-@AMT] as a source of capable workers to view the line-ups as an "uninvolved observer" is necessary to validate the design.
 
 
 #### Enchancing applications using animations
@@ -104,7 +106,7 @@ They are regularly used in the United States, most recently to present results a
 
 Applications of cartograms [@TSOTAIC] have been seen in social, political and epidemiological contexts.
 The Christopher Kocmoud, and Donald House, are cited stating 'cartogram can better show the distribution' [@CBACCC] when considering the spread of a disease. 
-The move toward alternative mapping techniques has progressed with the accessibility of animations. Especially in the statistical cumputing community which has recently been improved with the development of gganimate [@GGA].
+The move toward alternative mapping techniques has progressed with the accessibility of animations. Especially in the statistical computing community which has recently been improved with the development of gganimate [@GGA].
 
 
 
@@ -115,6 +117,9 @@ The move toward alternative mapping techniques has progressed with the accessibi
 Projecting data into the recognisable form of the geography, and then transforming to an alternative representation allows deeper understanding of the data. Thomas Lin Pedersen [@TGA] suggests animating visualisations as it 'demands attention'. This is especially convenient to direct attention, as animations do not assume captive audiences, instead inform by narrating the intended message communicated by the visualisation.
 
 
+
+
+\pagebreak
 
 ### Research Problem (e.g. aims, questions and/or hypotheses)
 
@@ -139,22 +144,20 @@ A possible alternative will represent each area equally on the map space. The us
 The use of animations will allow us to control how people transform a recognisable map of Australia, or the cities within, into a more sound map for inference. Animation has been used for many years, and is gaining popularity as access to computing power is increasing the amount of applications.
 
 
-# Program and Design of the Research Investigation (Maximum 2,000 words)
+
+\pagebreak
+
+# Program and Design of the Research Investigation
 
 ### Objectives, Methodology and Research Plan
 
-*should clearly identify the tasks to be undertaken and how these address your research problem;*
-*may be organised in relation to each of the individual aims or questions, and identify specific methods of experimentation for those conducting laboratory based work; *
-
-*And should include a clear if preliminary statement of the theoretical/experimental framework underpinning how you are going to carry out the design / plan.*
-
 #### Aim 1: Algorithm for hexmapping Australia
 
-Produce alternative mapping strategies (cartograms informed by Xiaoyue Cheng).
+Produce alternative mapping strategies.
 While there are visualisations available for spatial data, we can benefit by exploring and creating new displays.
 During the past few months work has progressed that contributes to this first aim. 
 We have been able to achieve a working algorithm for a hexmap of Australia [@SB].
-This algorithm takes a set of polygons and creates a map of tesselatted hexagons, representing a single geographical area with a single hexagon.
+This algorithm takes a set of polygons and creates a map of tessellated hexagons, representing a single geographical area with a single hexagon.
 They are arranged to replicate spatial relationships of areas in each city.
 
 The following tasks have been achieved:
@@ -167,64 +170,70 @@ The following tasks have been achieved:
     - find centroids (central point) of projected polygons
     - include capital cities as a data set
     - included simplified data for SA2 in 2011 and 2016
-    - allowed data to be provided in different formats eg. Rda or ESRI
+    - allowed data to be provided in different formats e.g.. Rda or ESRI
     - filtering grid points, ensures at least one point is returned
     - implemented algebraic method to filter grid for a 60 degree slice of a circle around centroid
-    - allow users to provide their own focal points eg. centre of Australia, regional cities
+    - allow users to provide their own focal points e.g.. centre of Australia, regional cities
     - check buffer distance is appropriate
     - vastly improved buffer grid, rolling average minimum and maximum of the centroids in Australian border
     - output the hexmap allocations and shape information
-    - show user the prgoression through steps
-    - create facetted maps using geofacet
+    - show user the progression through steps
+    - create faceted maps using geofacet
     - create plots of geography and hexagons
     
 
-To extend Chapter 1, we plan to incorporate repelling and attraction [link Xiaoyue Cheng] mechanisms inspired by Xiaoyue Cheng.
+To extend Aim 1, we plan to incorporate repelling and attraction  mechanisms inspired by Xiaoyue Cheng [-@IVMVTSAD].
 This could allow rural areas to bunch together and allow easier comparison of colours or symbols.
 
 
 #### Aim 2: Testing the effectiveness of the hexmap relative to the choropleth map
 
 To test the effectiveness of the alternative mapping techniques, we will produce an experiment hosted on Amazon's (2008) Mechanical Turk.
-The 'concept of a 'null distribution of plots' as the analogue of the null distribution of tests statistics' [stat inf EDA Buja] using 'the line-up' protocol Buja suggests.
+The 'concept of a 'null distribution of plots' as the analogue of the null distribution of tests statistics' [@GIFI] using 'the line-up' protocol Buja suggests.
 
-We have the opportunity to treat a visualisation as a statistic, visualisation may be compared just as numerical features of models or data summaries can.
-This is worth doing if methods show statistical distributions are present and not noticed using geographical maps.
+We have the opportunity to treat a visualisation as a statistic, the visualisations may be compared just as numerical features of models or data summaries can.
+The alternative maps should be implemented if methods show statistical distributions are present, and not noticed using geographical maps.
+
+<!--
 Results for aggregated areas in disease data are often standardised to be comparable to other areas, and area boundaries are driven by population.
-
-Therefore we propose the following experiment for 30 people:
-
-Factors: 
-1. Plot Type:
-    - Hex map and Choropleth map
-2. Distribution of estimates: 
-    - Normal
-    - Skewed: right; similar to the Cancer Atlas data
-    - Clustered
-3. Spatial dependence
-    - Random: values of spatial areas are randomly pulled from relevant distribution
-    - Spatial Dependence: values of spatial areas are randomly pulled from a range surrounding their neighbours, within the relevant distribution
-
-Replications: 4 of each 6 control combinations, where the four replications are randomised draws of data        
-
-Randomisation: Participants will be shown 24 of the line-ups produced.
-Two reps of each combination of 2 and 3.
-
-
-The entire experiment will be replicated with new simulated data sets and a different set of 30 people. 
+-->
 
 The experiment will form a survey of line-up plots of Australian maps.
-Each participant will see a random selection of the 6 (or 12) control combinations, they will see both the choropleth map and the hex map.
+Each participant will see a random selection of the control combinations, they will see both the choropleth map and the hex map.
 
 
 To distinguish the effectiveness of the maps, we will contrast the participant's recognition of the spatial distributions when displayed in each map type.
-A statistically significant difference in the group means will be computed in R, a software for statistical analysis.
+A statistically significant difference in the group means will be computed in R [-@R], a software for statistical analysis.
+
+We propose the following experiment:
+
+Factors: 
+
+1. Plot Type:
+ - Hex map and Choropleth map
+    
+2. Distribution of estimates: 
+ - Normal
+ - Skewed: right; similar to the Cancer Atlas data
+ - Clustered
+
+3. Spatial dependence:
+ - Random: values of spatial areas are randomly pulled from relevant distribution
+ - Spatial Dependence: values of spatial areas are randomly pulled from a range surrounding their neighbours, within the relevant distribution
+
+Replications: control combinations, where the replications are randomised draws of data        
+
+Randomisation: Participants will be shown a selection of the line-ups.
+
+The entire experiment will be replicated with new simulated data sets and a different set of participants. 
 
 
 #### Aim 3: Communicating the relationship between the hexmap and choropleth map: animation algorithm
 
-Animations will be created using R statistical software.
+Animations will be created using the gganimate [@GGA] package, implemented in the R [-@R] statistical software language and environment. 
 
+The animations will transform the geographic display of Australia to the alternative map.
+It will draw attention to the changes in size of the areas. 
 
 ### Resources and Funding Required
 
@@ -234,9 +243,9 @@ We suggest 90 respondents at $5 each,
 We will utilise the currently available equipment. A self provided laptop with access to the open source R software.
 We acknowledge the funding of the Research Training Program (RTP), ACEMS for supporting the author.
 
+\pagebreak
 
 ### Timeline for Completion of the Program
-
 
 1. *Algorithm for hexmapping Australia*
 2. *Testing the effectiveness of the hexmap relative to the choropleth map*
@@ -265,24 +274,27 @@ A. Addition activities: coursework units, deadlines, thesis preparation
 
 |*Semester 2 2019*                                                                                                   |             |
 |------------------|---------------|---------------------------------------------------------------------------------|-------------|
-|(Expected) Months |(Expected) Time|Task                                                                             | Status      |
 |August - September|**2 months**   |- (3) Apply transformation algorithm, polygons to hexagons                       | Planned     |
 |October           |**1 month**    |- (3) Prepare thesis chapter for submission                                      |             |
-|November          |**1 month**    |- (A) Complete masters thesis                                                    |             |
-
-  
+|November          |**1 month**    |- (A) Complete masters thesis                                                    |            
 
 
-# Reference List (Word count not included for proposal)
+\pagebreak
+
+# Reference List
 
 <div id="refs"></div>
 
+\pagebreak
 
-## Appendix (Word count not included for proposal)
+## Appendix
+
+The sugaRbag package contains all code for the construction of the alternative map. The algorithm is broke into multiple functions, and will be supported by vignettes that explain how to use sugaRbag to create an alternative map.
+
+https://github.com/srkobakian/sugaRbag
 
 
 ### Coursework
-
 
 In all cases, your required coursework needs to be based upon a research degree skills audit and a written plan briefly setting out the educational outcomes expected from the coursework. This coursework is planned together with your Supervisors to contribute and provide structure to your overall program of research.
 
@@ -291,5 +303,8 @@ IFN001 Advanced Information Research Skills (AIRS)
 
 Courses undertaken via cross institutional study at Monash University: 
 FIT 9133 Programming fundamentals in Python
+Completed at Monash Univeristy, Semester 2, 2018.
+
 ETC 4541 Bayesian time series econometrics
+To be completed at Monash Univeristy, Semester 1, 2019.
 
