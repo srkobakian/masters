@@ -71,11 +71,10 @@ These methods change the size of areas to represent a statistic. Cartogram metho
 Australia has a unique population distribution, spatial relationships which are population based are also unique. (Attempt to apply dorling algorithms to SA areas) 
 -->
 
+
 Daniel Dorling's cartograms allow one circle for each area [@TVSSS]. It maintains the spatial distribution for each area by 'touching as many others that it originally neighboured as possible while touching as few as possible that it did not.' Maintaining spatial relationships is necessary to visually analyse spatial distributions, especially for the visual analysis of small geographic areas. 
 Dorling mentions choropleth geographical maps of Australia and Canada are particularly affected by the following problem: "on any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye" [@TVSSS]. 
 Journalist Nick Evershed uses the headline "Australian electorates vary greatly in size, which makes it extremely difficult to present election results geographically. We've come up with a solution" [-@BBBEM]. This prefaces a solution to the issue. As sizes of the electorates range between 30 and 1,587,758 sq km a cartogram display was considered. Citing the prevalence of cartograms in the US media, however in the context of Australia most algorithms produced an unrecognisable shape. Evershed points to 150hexagons.com as a step toward a display that is more representative and emphasises each electorate equally. This inspired Evershed and Dance's interactive map [@AERIP] where each electorate is represented by a displaced circle, that are sized according the population. It also features an underlaid map of Australian geographies to aid interpretation.
-
-
 
 
 #### Evaluating alternative representations
