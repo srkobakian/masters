@@ -59,7 +59,7 @@ The visualisations commonly used for mapping geographical data are choropleth ma
 Waldo Tobler [-@TFYCC] explores the progression from choropleth maps to cartograms and considers the situations which favour either display. 
 Choropleth methods are geographically accurate maps, and represent data using colour, transparency and other methods.
 Geographical areas maintain their shape, size and location.
-This preserves spatial relationships, and neighbours can be reasonably considered related.
+This preserves spatial relationships, and neighbours can be reasonably considered related. They have been used regularly in the United States, especially to map cancer [@USCSDV], and election data [@MPER12], [@MPER16]. 
 Alternatively, cartograms focus on the spatial distribution within the geographically related data. Geographical features are foregone in order to prioritse spatial distributions of the data.
 
 
