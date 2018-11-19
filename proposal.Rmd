@@ -120,7 +120,7 @@ Projecting data into the recognisable form of the geography, and then transformi
 
 \pagebreak
 
-### Research Problem (e.g. aims, questions and/or hypotheses)
+#### Research Problem (e.g. aims, questions and/or hypotheses)
 
 <!-- Why Australia breaks cartograms -->
 The Australian population has congregated in the capital cities, and significant cities in each state. This pattern has resulted in very dense population centres, and sparsely populated rural areas.
@@ -237,10 +237,13 @@ It will draw attention to the changes in size of the areas.
 ### Resources and Funding Required
 
 A request for funding will be submitted to undertake the line-up experiment on Amazon Mechanical Turk.
-We suggest 90 respondents at $5 each, 
+We suggest 90 respondents at $5 each.
 
 We will utilise the currently available equipment. A self provided laptop with access to the open source R software.
 We acknowledge the funding of the Research Training Program (RTP), ACEMS for supporting the author.
+
+Data resources will also be provided by the Australian Cancer Atlas online download tool.
+
 
 \pagebreak
 
