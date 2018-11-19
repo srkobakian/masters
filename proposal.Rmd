@@ -54,17 +54,13 @@ Many disease data sets are distributed in aggregate on geographic areas rather t
 <!-- Introduce cartograms and creating using algorithms. Reference main cartogram papers. Consider references of these paper and those that have cited them.
 -->
 
-The visualisations commonly used for mapping geographical data are choropleth maps and cartograms.
-Waldo Tobler [-@TFYCC] explores the progression from choropleth maps to cartograms and considers the situations which favour either display. 
-Choropleth methods are geographically accurate maps, and represent data using colour, transparency and other methods.
-Geographical areas maintain their geographic shape, size and location.
-This preserves spatial relationships, and data for the surrounding neighbours can be reasonably considered related.
-Alternatively, cartograms are used to focus on the spatial distribution within the geographically related data. Geographical features are foregone in order to prioritse spatial distributions of the data.
+An alternative to a choropleth map for visualising spatial data is a cartogram.
+Waldo Tobler [-@TFYCC] explores the progression from choropleth maps to cartograms and considers the situations which favour either display. Choropleth methods are geographically accurate maps, and represent data using colour, transparency and other methods. Geographical areas maintain their geographic shape, size and location. This preserves spatial relationships, and data for the surrounding neighbours can be reasonably considered related.
+Cartograms are used to focus on the spatial distribution within the geographically related data. They transform the map, to make the size of the geographic shape reflect the measured data, whilst maintaining the relative geographic position of the area. Priority is on the spatial distributions of the measured variable.
 
 
-Cartograms have been implemented since 1851 [@TFYCC]. 
-Sabrina Nusrat and Stephen G. Kobourov [-@ECE] recognise four types of cartograms: Contiguous, Non-Contiguous, Dorling and Rectangle.
-All of these methods change the size of the areas to represent a statistic. Rectangular [@ORC] cartograms represent regions where Dorling cartograms use circles [@TVSSS]. Consistent shapes are used, but sizes differ to represent a statistic. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work that finds hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles. These maps also provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
+Cartograms have been implemented since 1851 [@TFYCC]. Nusrat and Kobourov [-@ECE] describe four types of cartograms: Contiguous, Non-Contiguous, Dorling and Rectangle.
+All of these methods change the size of the areas to represent a statistic. Rectangular [@ORC] cartograms represent regions with rectangles where Dorling cartograms use circles [@TVSSS]. Consistent shapes are used, but sizes differ. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work, that finds hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles. These maps also provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
 
 
 
@@ -72,7 +68,7 @@ All of these methods change the size of the areas to represent a statistic. Rect
 Australia has a unique population distribution, spatial relationships which are population based are also unique. (Attempt to apply dorling algorithms to SA areas) 
 -->
 
-Daniel Dorling's cartograms allow one circle for each area [@TVSSS]. It maintains the spatial distribution for each area by 'touching as many others that it originally neighboured as possible while touching as few as possible that it did not.' This concept is key to the visual analysis of spatial distributions, especially for the visual analysis of small geographic areas. However, "on any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye" [@TVSSS]. Dorling mentions choropleth geographical maps of Australia and Canada are particularly affected.
+Dorling's cartograms allow one circle for each area [@TVSSS]. It maintains the spatial distribution for each area by 'touching as many others that it originally neighboured as possible while touching as few as possible that it did not.' This concept is key to the visual analysis of spatial distributions, especially for the visual analysis of small geographic areas. However, "on any traditional map of an urbanised country, the majority of political constituencies are literally not visible to the naked eye" [@TVSSS]. Dorling mentions choropleth geographical maps of Australia and Canada are particularly affected.
 Journalist Nick Evershed uses the headline "Australian electorates vary greatly in size, which makes it extremely difficult to present election results geographically. We've come up with a solution" [-@BBBEM]. This prefaces a uniquely Australian issue. As sizes of the electorates range between 30 and 1,587,758 sq km a cartogram display was considered. Citing the prevalence of cartograms in the US media, however in the context of Australia most algorithms produced an unrecognisable shape. Evershed points to 150hexagons.com as a step toward a display that is more representative and emphasises each electorate equally. This inspired Evershed and Dance's interactive map [@AERIP] where each electorate is represented by a displaced circle, that are sized according the population. It also features an underlaid map of Australian geographies to aid interpretation.
 
 
