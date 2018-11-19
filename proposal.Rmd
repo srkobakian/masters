@@ -38,7 +38,7 @@ Econometrics & Business Statistics Faculty, Monash University.
 <!-- 
 Historical context
 -->
-Visualising data has helped to understand problems in many scientific fields. A classic example in disease data is the map of London, made by Dr John Snow, pinpointing water pump locations among cholera occurrences, that made the case for the cause being contaminated water. A nice discussion of this can be found by Tufte et al [-@VEIQEN].
+Visualising data has helped to understand problems in many scientific fields. A classic example in disease data is the map of London, made by Dr John Snow, pinpointing water pump locations among cholera occurrences, that made the case for the cause being contaminated water. A nice discussion of this can be found by @VEIQEN.
 
 <!-- 
 The data, and the problem to be addressed
@@ -55,17 +55,17 @@ The typical visualisation for aggregated spatial data is a choropleth map, where
 <!-- Introduce cartograms and creating using algorithms. Reference main cartogram papers. Consider references of these paper and those that have cited them.
 --> 
 
-The visualisations commonly used for mapping geographical data are choropleth maps and cartograms.
+An alternative to a choropleth map for visualising spatial data is a cartogram.
 Waldo Tobler [-@TFYCC] explores the progression from choropleth maps to cartograms and considers the situations which favour either display. 
 Choropleth methods are geographically accurate maps, and represent data using colour, transparency and other methods.
 Geographical areas maintain their shape, size and location.
 This preserves spatial relationships, and neighbours can be reasonably considered related.
-Alternatively, cartograms focus on the spatial distribution within the geographically related data. Geographical features are foregone in order to prioritse spatial distributions of the data.
+Cartograms are used to focus on the spatial distribution within the geographically related data. They transform the map, to make the size of the geographic shape reflect the measured data, whilst maintaining the relative geographic position of the area. Priority is on the spatial distributions of the statistic.
 
 
 Cartograms have been implemented since 1851 [@TFYCC]. 
-Sabrina Nusrat and Stephen G. Kobourov [-@ECE] recognise four cartogram types: Contiguous, Non-Contiguous, Dorling and Rectangle.
-These methods change the size of areas to represent a statistic. Cartogram methods represent regions using rectangles [@ORC] or circles [@TVSSS] for Dorling cartograms. Consistent shapes are used, but sizes differ to represent a statistic. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work finding hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles. They provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
+Sabrina Nusrat and Stephen G. Kobourov [-@ECE] recognise four cartogram types: contiguous, non-contiguous, Dorling and rectangle.
+These methods change the size of areas relative to a statistic. Cartogram methods represent regions using rectangles [@ORC] or circles [@TVSSS] for Dorling cartograms. Consistent shapes are used, but sizes differ to represent a statistic. The term 'mosaic cartograms' was introduced [@MDAC] to describe an alternative cartogram display. Carr, Olsen and White's [@HMMDUBGD] 'hexagon mosaic map' discussion cites Carr's previous work finding hexagons provide visual appeal and 'representational accuracy'. The authors credit nature for the concept of tessellated hexagons tiles. They provide as little disruption as possible to the area adjacencies, especially at lower resolutions where smaller hexagons capture more geographical details. 
 
 <!-- Use of these maps has not been shown use Australia.
 Australia has a unique population distribution, spatial relationships which are population based are also unique. (Attempt to apply dorling algorithms to SA areas) 
@@ -85,12 +85,12 @@ These measures may now be supplemented with a new approach.
 <!-- Heike Hoffman visual inference 
 -->
 
-Graphical Inference is introduced by Wickham, Cook, Hofmann and Buja to determine if patterns that appear in visualisations are 'really there' [-@GIFI]. Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods [@GTPCCD]. Graphical Inference is a modern statistical procedure to visually recognise structure in data.
+Statistical inference for graphics was introduced by @Buja4361, to determine if patterns that appear in visualisations are 'really there', and the methods were validated by @majumder2013.  @GIFI introduced the ideas to the information visualisation community.  Their approach has been applied to common graphics, and presents the opportunity to measure effectiveness of a new graphic in comparison to established visualisation methods [@GTPCCD]. Graphical Inference is a modern statistical procedure to visually recognise structure in data.
 
-The question: "Is there a spatial trend?" is historically associated with choropleth maps [@GIFI]. An example has been displayed of one true data set of spatial data, presented in a line-up of null plots. These tests acknowledge a trend, pattern or relationship in the true data, if it appears significantly different from the null plots in the line-up.
+The question: "Is there a spatial trend?" is historically associated with choropleth maps [@GIFI]. Using the visual inference approach called a lineup, an example is shown that examines spatial trend choropleth map. The map of the data is displayed in a field of null plots, constructed without a spatial trend. These lineup tests can be used to objectively test for a trend, pattern or relationship in the true data, if the data plot is detectably different from the null plots in the line-up.
 
-Adapting this approach could be used to test the effectiveness of the choropleth map, against an alternative graphic. By contrasting the results of the choropleth and alternative line-ups that present the same true data in line-ups of null plots. This contrast could be used to test statistically the effectiveness of the visual display in communicating spatial data.
-The R package, ggplot2 [@GG2], is able to create plots and line-ups of plots that can be used in this testing.
+Adapting this approach could be used to test the effectiveness of the choropleth map, against an alternative graphic. By contrasting the results of the choropleth and alternatives, that present the same true data in line-ups of null plots. This contrast can be used to statistically test the effectiveness of the visual display in communicating spatial data, following the approach by @GTPCCD.
+The R package, nullabor [@nullabor], is able to create line-ups of plots that can be used in this testing.
 
 This study also endorses Amazon Mechanical Turk [-@AMT] as a source of capable workers to view the line-ups as an "uninvolved observer" is necessary to validate the design.
 
@@ -101,7 +101,7 @@ This study also endorses Amazon Mechanical Turk [-@AMT] as a source of capable w
 -->
 
 
-They are regularly used in the United States, most recently to present results and race calls from The Associated Press for the mid-term elections [@HERDTC] along with the 2017 primary elections [@MTRRCTH]. 
+Choropleth maps are regularly used in the United States, most recently to present results and race calls from The Associated Press for the mid-term elections [@HERDTC] along with the 2017 primary elections [@MTRRCTH]. 
 
 Applications of cartograms [@TSOTAIC] have been seen in social, political and epidemiological contexts.
 The Christopher Kocmoud, and Donald House, are cited stating 'cartogram can better show the distribution' [@CBACCC] when considering the spread of a disease. 
