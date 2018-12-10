@@ -1,0 +1,234 @@
+---
+title: "An algorithm for a hexagon tilegram map of Australia"
+author: "Stephanie"
+date: "6 December 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Abstract
+
+<!--
+problem has been studied
+what is the goal of the thesis/paper
+brief statement on existing solutions and their drawbacks
+major  contributions  of  the  thesis
+State  briefly  assumptions  and  limitations. 
+The  abstract  should  also  include  major idea(s)
+the type (e.g. performance, complexity) and result of analysis done
+-->
+
+# Introduction
+
+Representing the world has always presented issues.
+We present a solution for alternate visualisations. 
+Especially to represent areas of heterogeneous size.
+
+## Background
+<!--
+basic facts needed to tune the reader to the thesis or paper
+-->
+
+- Choropleth methods are accurate geographically.
+- Cartogram alternative have been used historically.
+- Spatial relationships are preserved.
+- How it is novel
+
+## Problem
+<!--
+Problem   statement   (precise   definition   and   importance);   
+avoid   very   technical definitions  and  statements, give  good  intuition for your involved definitions or facts. 
+-->
+
+<!--
+Existing  solutions  and  their  criticism  (limit  only  to  those  directly  relevant  to  the  contribution of the thesis; give a motivation for doing research on the topic); 
+-->
+
+- Presenting spatial distributions
+- Extremely small areas are lost not easily compared at a high level
+- Choropleths; unequal space on the display, difficult to represent Australia
+- Cartograms; strong distortions misrepresent Australia
+
+<!--
+With different characteristics or properties:
+
+-->
+
+- Unusual population settlement and dispersion over the geographical space: Australia
+Dense south east, sparse central and west
+
+
+
+
+## Solution
+
+
+
+<!--
+Contributions (proposed solutions; why they are expected to be better; essence of the idea(s) used in proposed solutions); 
+What the algorithm is trying to do:
+-->
+
+Like Dorling, same shape will be used.
+Like tilegram, tesselation using equally sized areas
+
+Allocate a map space of consistent tesselated shape for each geographic area
+
+which is different from existing algorithms:
+contiguous, keeps exact neightbours, no recognisable shape
+non contiguous, keeps shape, can lose neighbours
+
+
+<!--
+Why the reader should believe that it is correct or reasonable.
+-->
+Clear to see spatial distribution, geographic neighbours will have similar values
+Should keep neighbours relationships intact
+
+<!--
+If it is supposed to be “better”, what is meant by better.
+-->
+Easier to read distribution at a distance, see a much larger area, general relationship at a glance
+
+<!--
+Conditions, assumptions and limitations of the research done; 
+-->
+Works well for America, states are almost homogeneous 
+Works well for England, London is the biggest issue, pushing out rural areas does not disturb population dense areas.
+
+<!--
+Analysis  (theoretical,  experimental,  simulations,  implementations, done  in  thesis;  under what conditions and scenarios is your solution best?  
+-->
+
+Our solution considers multiple population dense areas.
+
+Allows dispersion to be increased when needed, and distance from origin to be considered
+
+
+# Relevant Literature
+
+
+all  known  results  relevant  to  the  problem  stated,  
+whether  or  not  they  are  used  in  proposed  contributions
+
+Discuss  advantages  and  drawbacks  of  known  solutions  that  are  relevant  to  your  problem, 
+discuss  the  relevance of each reviewed item to your topic and your solutions. 
+
+ 
+For  every  discussed  reference,  it  is  very  important  to  relate  them  to  your  problem  and  contribution  in  one  of  several  ways:  
+it  does  not  exactly  solve  the  same  problem,
+it  solves  the  same  problem  but  makes  different  assumptions  about  the  system, 
+it  has  some  limitations  that you  do  not  have, 
+it  makes  the  same  assumptions  but  does  not  work  well  under  certain  
+conditions  and  scenarios  for  which  you  have  better  solutions,  or, 
+if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or   
+experimental  comparisons.  
+
+
+# Algorithm
+
+## Design of algorithm
+
+The Dorling maps in [@TVSSS] give examples of displacing central geographically small but population dense areas.
+This inspired the concept of this algorithm. 
+
+First the collection of polygons is considered.
+There are several ways of providing the set of polygons. 
+
+The projected centroids of all polygons are derived.
+
+A rectangle is established bounding all of the polygon's centroids, with an additional buffer zone.
+
+Some values will be automatically derived if not provided.
+buffer distance:
+size of the hexagons:
+filter_dist:
+
+The buffer is created to allow expansion beyond the range of the centroids.
+It is a complex method, and becomes more detailed for finer hexagons.
+It relies on the rows and columns of the hexagons.
+
+- derive a group number
+- takes a rolling minimum and maximum for both longitudes and latitudes
+- takes a rolling average of these values
+- creates a smoother bufferzone expanding where there are hexagons along the coastline. Will not be smaller than the area containing the set of centroids
+
+A hexagon point grid is created that contains possible points for a polygon to be allocated. 
+
+
+For each polygon centroid in the set. Consider the distance to each of the focal points provided. The closest focal point name, the distance to the polygon centroid, and the angle from focal point to polygon centroid will be returned and added to the polygon data set. 
+
+The distance between the polygon centroid and it's closest focal point data set is used to arrange the data set for allocation. The closest point is allocated first, extending to the furthest.
+
+Allocation of all centroids then occurs. For each polygon, only unallocated hexagon points will be considered. The filter distance is then used to subset possible points to only those surrounding the the polygon centroid. Of these possible points, only those within a range of the angle are kept. This angle begins at 30 degrees.
+
+If no available hexagon grid point is found within the original filter distance and angle, the distance is expanded, only when a maximum distance is reached will the angle expand to accomodate more possible grid points.  
+
+The allocation is returned and combined with the data relating to each polygon.
+
+<!-- How much detail for derived
+-->
+
+
+First  give  the  intuitive  solution.
+
+<!--
+Prosecode:  Number each step, never break a loop over steps,
+use subnumbering for parts of each step, and
+include explanatory text.
+Literate code:  The algorithm is introduced gradually,
+intermingled with discussion of underlying ideas.
+-->
+
+## Proof of algorithm
+
+<!--
+Is  your  solution  always  working?  
+Can  you  prove it? 
+How does it work? 
+-->
+
+Examples of Melbourne, Victoria, Australia
+At different levels, distance from original centroids, change in area
+
+<!--
+Is your analysis about worst case or average case? 
+What kind of theoretical and analytical support can you give for your proposed scheme/solution? 
+-->
+
+<!--
+The  performance  of  your  solution  can  be  compared  with  existing  solutions,  if  any  exists 
+under  same  or  similar  assumptions,  analytically  and/or  by  doing  a  simulation.
+
+Find examples of measures of cartogram effectiveness
+-->
+
+
+# Evaluation
+
+<!--
+Apply methods of evaluation used elsewhere
+-->
+
+# Conclusion
+
+<!--
+What did you achieve with this research? 
+What are the drawbacks of your solution(s)? 
+What kind  of  future  work  can  be  done? 
+Do  you  have  some  ideas  that  you  intend  to  study  further? 
+The  ownership  of  some  other  possible  solutions,  not  fully  explored,  or  subject  of  your  
+forthcoming  different  article,  can  be  protected  by  outlining  them  briefly  in  the  conclusion  
+section, sometimes with reference to upcoming article. 
+-->
+
+
+\pagebreak
+
+# Reference List
+
+<div id="refs"></div>
