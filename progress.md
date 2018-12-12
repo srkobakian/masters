@@ -83,9 +83,21 @@ A. Completed exam for FIT9133
     - show user the prgoression through steps
     - create facetted maps using geofacet
     - create plots of geography and hexagons
+    - turn hexagon centroids into hexagon polygons
+    - enhance use of subsets of shape files
+    - Queensland vingette
+    - Spatial distributions of cancer vignette
     
-1. *Allowed faceting map in Victoria by the SA4 levels* 
-A. *Prepare thesis chapter for submission*
+## DECEMBER
+
+1. Secured LGA data for TIA in Victoria
+    - isolated issues created when sf_id is not unique
+    - built check for unique ID
+    - LGA vignette for Victoria
+    
+
+1. *Prepare thesis chapter for submission*
+    - began structure of thesis chapter
 
 ##  JANUARY - FEBRUARY
 

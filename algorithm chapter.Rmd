@@ -24,9 +24,9 @@ the type (e.g. performance, complexity) and result of analysis done
 
 # Introduction
 
-Representing the world has always presented issues.
-We present a solution for alternate visualisations. 
-Especially to represent areas of heterogeneous size.
+Representing the globe in 2D space has presented issues for many years. Methods have been established to visualise geographical space.
+We present a solution for alternate visualisations when the intention is to represent the spatial distribution.
+
 
 ## Background
 <!--
@@ -34,15 +34,18 @@ basic facts needed to tune the reader to the thesis or paper
 -->
 
 - Choropleth methods are accurate geographically.
-- Cartogram alternative have been used historically.
+- Cartogram alternative map has been used historically.
 - Spatial relationships are preserved.
-- How it is novel
 
 ## Problem
 <!--
 Problem   statement   (precise   definition   and   importance);   
 avoid   very   technical definitions  and  statements, give  good  intuition for your involved definitions or facts. 
 -->
+
+- Spatial distributions are not well presented when areas differ in size.
+- We want to understand the distribution among population
+- We can benefit from making the focus the distribution, not the geography
 
 <!--
 Existing  solutions  and  their  criticism  (limit  only  to  those  directly  relevant  to  the  contribution of the thesis; give a motivation for doing research on the topic); 
@@ -62,32 +65,31 @@ With different characteristics or properties:
 Dense south east, sparse central and west
 
 
+- Applying alternative maps that allow for dense population areas when cities that are population dense are close together
 
 
 ## Solution
-
-
 
 <!--
 Contributions (proposed solutions; why they are expected to be better; essence of the idea(s) used in proposed solutions); 
 What the algorithm is trying to do:
 -->
 
-Like Dorling, same shape will be used.
-Like tilegram, tesselation using equally sized areas
+- Like Dorling, same shape will be used.
+Like tilegram, tesselation using equally sized shapes.
 
-Allocate a map space of consistent tesselated shape for each geographic area
+- Allocate each geographic area to a map space of consistent tesselated shape
 
 which is different from existing algorithms:
-contiguous, keeps exact neightbours, no recognisable shape
-non contiguous, keeps shape, can lose neighbours
+- contiguous, keeps exact neightbours, no recognisable shape
+- non contiguous, keeps shape, can lose neighbours
 
 
 <!--
 Why the reader should believe that it is correct or reasonable.
 -->
-Clear to see spatial distribution, geographic neighbours will have similar values
-Should keep neighbours relationships intact
+- Clear to see spatial distribution, 
+_ Should keep neighbours relationships intact as geographic neighbours will have similar values
 
 <!--
 If it is supposed to be “better”, what is meant by better.
@@ -111,23 +113,26 @@ Allows dispersion to be increased when needed, and distance from origin to be co
 
 # Relevant Literature
 
-
+<!--
 all  known  results  relevant  to  the  problem  stated,  
 whether  or  not  they  are  used  in  proposed  contributions
+-->
 
+<!--
 Discuss  advantages  and  drawbacks  of  known  solutions  that  are  relevant  to  your  problem, 
 discuss  the  relevance of each reviewed item to your topic and your solutions. 
+-->
 
- 
+<!--
 For  every  discussed  reference,  it  is  very  important  to  relate  them  to  your  problem  and  contribution  in  one  of  several  ways:  
 it  does  not  exactly  solve  the  same  problem,
 it  solves  the  same  problem  but  makes  different  assumptions  about  the  system, 
 it  has  some  limitations  that you  do  not  have, 
 it  makes  the  same  assumptions  but  does  not  work  well  under  certain  
 conditions  and  scenarios  for  which  you  have  better  solutions,  or, 
-if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or   
+if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or 
 experimental  comparisons.  
-
+-->
 
 # Algorithm
 

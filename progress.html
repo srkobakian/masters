@@ -283,6 +283,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -290,14 +293,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -401,8 +464,30 @@ A. FIT9133: Programming fundamentals in Python: Semester 2, Monash University</p
 <li>Create a main function to call others
 <ul>
 <li>Provide output as a list of two, the hexmap allocations and tibble with geometry column</li>
+<li>allow shape files in environment to be provided</li>
+<li>show user the prgoression through steps</li>
+<li>create facetted maps using geofacet</li>
+<li>create plots of geography and hexagons</li>
+<li>turn hexagon centroids into hexagon polygons</li>
+<li>enhance use of subsets of shape files</li>
+<li>Queensland vingette</li>
+<li>Spatial distributions of cancer vignette</li>
 </ul></li>
-<li><em>Allowed faceting map in Victoria by the SA4 levels</em> A. <em>Prepare thesis chapter for submission</em></li>
+</ol>
+</div>
+<div id="december" class="section level2">
+<h2>DECEMBER</h2>
+<ol style="list-style-type: decimal">
+<li>Secured LGA data for TIA in Victoria
+<ul>
+<li>isolated issues created when sf_id is not unique</li>
+<li>built check for unique ID</li>
+<li>LGA vignette for Victoria</li>
+</ul></li>
+<li><em>Prepare thesis chapter for submission</em>
+<ul>
+<li>began structure of thesis chapter</li>
+</ul></li>
 </ol>
 </div>
 <div id="january---february" class="section level2">
