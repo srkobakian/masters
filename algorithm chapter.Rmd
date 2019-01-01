@@ -1,5 +1,5 @@
 ---
-title: "An algorithm for a hexagon tilegram map of Australia"
+title: "An algorithm for a spatial mapping using a hexagon tilegram, with application to Australia disease maps"
 author: "Stephanie"
 date: "6 December 2018"
 output:
@@ -22,6 +22,8 @@ The  abstract  should  also  include  major idea(s)
 the type (e.g. performance, complexity) and result of analysis done
 -->
 
+KEYWORDS: 
+
 # Introduction
 
 Representing the globe in 2D space has presented issues for many years. Methods have been established to visualise geographical space.
@@ -37,7 +39,28 @@ basic facts needed to tune the reader to the thesis or paper
 - Cartogram alternative map has been used historically.
 - Spatial relationships are preserved.
 
-## Problem
+<!--
+all  known  results  relevant  to  the  problem  stated,  
+whether  or  not  they  are  used  in  proposed  contributions
+-->
+
+<!--
+Discuss  advantages  and  drawbacks  of  known  solutions  that  are  relevant  to  your  problem, 
+discuss  the  relevance of each reviewed item to your topic and your solutions. 
+-->
+
+<!--
+For  every  discussed  reference,  it  is  very  important  to  relate  them  to  your  problem  and  contribution  in  one  of  several  ways:  
+it  does  not  exactly  solve  the  same  problem,
+it  solves  the  same  problem  but  makes  different  assumptions  about  the  system, 
+it  has  some  limitations  that you  do  not  have, 
+it  makes  the  same  assumptions  but  does  not  work  well  under  certain  
+conditions  and  scenarios  for  which  you  have  better  solutions,  or, 
+if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or 
+
+experimental  comparisons.  
+-->
+## Motivation
 <!--
 Problem   statement   (precise   definition   and   importance);   
 avoid   very   technical definitions  and  statements, give  good  intuition for your involved definitions or facts. 
@@ -111,42 +134,20 @@ Our solution considers multiple population dense areas.
 Allows dispersion to be increased when needed, and distance from origin to be considered
 
 
-# Relevant Literature
+The Dorling maps in [@TVSSS] give examples of displacing central geographically small, population dense areas.
+This inspired the concept of this algorithm. 
 
-<!--
-all  known  results  relevant  to  the  problem  stated,  
-whether  or  not  they  are  used  in  proposed  contributions
--->
 
-<!--
-Discuss  advantages  and  drawbacks  of  known  solutions  that  are  relevant  to  your  problem, 
-discuss  the  relevance of each reviewed item to your topic and your solutions. 
--->
-
-<!--
-For  every  discussed  reference,  it  is  very  important  to  relate  them  to  your  problem  and  contribution  in  one  of  several  ways:  
-it  does  not  exactly  solve  the  same  problem,
-it  solves  the  same  problem  but  makes  different  assumptions  about  the  system, 
-it  has  some  limitations  that you  do  not  have, 
-it  makes  the  same  assumptions  but  does  not  work  well  under  certain  
-conditions  and  scenarios  for  which  you  have  better  solutions,  or, 
-if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or 
-experimental  comparisons.  
--->
 
 # Algorithm
 
 ## Design of algorithm
-
-The Dorling maps in [@TVSSS] give examples of displacing central geographically small but population dense areas.
-This inspired the concept of this algorithm. 
 
 First the collection of polygons is considered.
 There are several ways of providing the set of polygons. 
 
 The projected centroids of all polygons are derived.
 
-A rectangle is established bounding all of the polygon's centroids, with an additional buffer zone.
 
 Some values will be automatically derived if not provided.
 buffer distance:
@@ -154,7 +155,7 @@ size of the hexagons:
 filter_dist:
 
 The buffer is created to allow expansion beyond the range of the centroids.
-It is a complex method, and becomes more detailed for finer hexagons.
+It is a complex method, and becomes more detailed for smaller hexagons.
 It relies on the rows and columns of the hexagons.
 
 - derive a group number
@@ -189,7 +190,7 @@ Literate code:  The algorithm is introduced gradually,
 intermingled with discussion of underlying ideas.
 -->
 
-## Proof of algorithm
+## Applications of algorithm
 
 <!--
 Is  your  solution  always  working?  
@@ -200,26 +201,43 @@ How does it work?
 Examples of Melbourne, Victoria, Australia
 At different levels, distance from original centroids, change in area
 
+LGA
+sa2
+
 <!--
 Is your analysis about worst case or average case? 
 What kind of theoretical and analytical support can you give for your proposed scheme/solution? 
--->
-
-<!--
-The  performance  of  your  solution  can  be  compared  with  existing  solutions,  if  any  exists 
-under  same  or  similar  assumptions,  analytically  and/or  by  doing  a  simulation.
-
-Find examples of measures of cartogram effectiveness
 -->
 
 
 # Evaluation
 
 <!--
-Apply methods of evaluation used elsewhere
+The  performance  of  your  solution  can  be  compared  with  existing  solutions,  if  any  exists 
+under  same  or  similar  assumptions,  analytically  and/or  by  doing  a  simulation.
+
+Find examples of measures of cartogram effectiveness
+
+
 -->
 
-# Conclusion
+
+<!--
+Apply methods of evaluation used elsewhere
+Nusrat, Alam and Kobourov:
+- Statistical accuracy: how well do the modified areas
+represent the corresponding statistic shown (e.g.,
+population or GDP). This is measured in terms of
+“cartographic error.”
+- Geographical accuracy: how much do the modified
+shapes resemble the original geographic shapes and
+how well preserved are their relative positions.
+- Topological accuracy: how well does the topology (as
+measured by adjacent regions) of the cartogram
+match that of the original map.
+-->
+
+# Summary
 
 <!--
 What did you achieve with this research? 
@@ -230,6 +248,8 @@ The  ownership  of  some  other  possible  solutions,  not  fully  explored,  or
 forthcoming  different  article,  can  be  protected  by  outlining  them  briefly  in  the  conclusion  
 section, sometimes with reference to upcoming article. 
 -->
+
+# Discussion
 
 
 \pagebreak
