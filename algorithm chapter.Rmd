@@ -230,11 +230,17 @@ $area_{h_i} = 1$
 
 $area_h = 1 * npolys$
 
+$y_i$ denotes the statistic of interest for polygon i, where i = 1,...,npolygs
+$x_i$ denotes the spatial area for polygon i, where i = 1,...,npolys
+
 Areal Statistic Distortion is the change in the areal distribution of the set of polygons.
 Difference between space taken by polygons and space taken by hexagons, with respect to the desired statistic. Setting the desired statistic to area givesthe change in map space used to represent the polygons. 
 
+The average when considering area used to display:
 
 $A = \sum_{i=1}^{npolys}y_ix_i/ \sum_{i=1}^{npolys}x_i$
+
+$H = \sum_{i=1}^{npolys}y_i/npolys$
 
 Using $w_i = x_i/\sum_{i=1}^{npolys}x_i$
 
