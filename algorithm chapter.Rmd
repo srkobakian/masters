@@ -30,36 +30,6 @@ Representing the globe in 2D space has presented issues for many years. Methods 
 We present a solution for alternate visualisations when the intention is to represent the spatial distribution.
 
 
-## Background
-<!--
-basic facts needed to tune the reader to the thesis or paper
--->
-
-- Choropleth methods are accurate geographically.
-- Cartogram alternative map has been used historically.
-- Spatial relationships are preserved.
-
-<!--
-all  known  results  relevant  to  the  problem  stated,  
-whether  or  not  they  are  used  in  proposed  contributions
--->
-
-<!--
-Discuss  advantages  and  drawbacks  of  known  solutions  that  are  relevant  to  your  problem, 
-discuss  the  relevance of each reviewed item to your topic and your solutions. 
--->
-
-<!--
-For  every  discussed  reference,  it  is  very  important  to  relate  them  to  your  problem  and  contribution  in  one  of  several  ways:  
-it  does  not  exactly  solve  the  same  problem,
-it  solves  the  same  problem  but  makes  different  assumptions  about  the  system, 
-it  has  some  limitations  that you  do  not  have, 
-it  makes  the  same  assumptions  but  does  not  work  well  under  certain  
-conditions  and  scenarios  for  which  you  have  better  solutions,  or, 
-if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or 
-
-experimental  comparisons.  
--->
 ## Motivation
 <!--
 Problem   statement   (precise   definition   and   importance);   
@@ -91,7 +61,38 @@ Dense south east, sparse central and west
 - Applying alternative maps that allow for dense population areas when cities that are population dense are close together
 
 
-## Solution
+
+## Background
+<!--
+basic facts needed to tune the reader to the thesis or paper
+-->
+
+- Choropleth methods are accurate geographically.
+- Cartogram alternative map has been used historically.
+- Spatial relationships are preserved.
+
+<!--
+all  known  results  relevant  to  the  problem  stated,  
+whether  or  not  they  are  used  in  proposed  contributions
+-->
+
+<!--
+Discuss  advantages  and  drawbacks  of  known  solutions  that  are  relevant  to  your  problem, 
+discuss  the  relevance of each reviewed item to your topic and your solutions. 
+-->
+
+<!--
+For  every  discussed  reference,  it  is  very  important  to  relate  them  to  your  problem  and  contribution  in  one  of  several  ways:  
+it  does  not  exactly  solve  the  same  problem,
+it  solves  the  same  problem  but  makes  different  assumptions  about  the  system, 
+it  has  some  limitations  that you  do  not  have, 
+it  makes  the  same  assumptions  but  does  not  work  well  under  certain  
+conditions  and  scenarios  for  which  you  have  better  solutions,  or, 
+if  none  of  these  is  true,  you are   considering   it   as   valid   competitor,   and   will   try   to   defeat   it   in   your   analytical   or 
+
+experimental  comparisons.  
+-->
+## Proposed Solution
 
 <!--
 Contributions (proposed solutions; why they are expected to be better; essence of the idea(s) used in proposed solutions); 
@@ -201,8 +202,8 @@ How does it work?
 Examples of Melbourne, Victoria, Australia
 At different levels, distance from original centroids, change in area
 
-LGA
-sa2
+LGA of all australia
+sa2 for queensland
 
 <!--
 Is your analysis about worst case or average case? 
@@ -220,6 +221,34 @@ Find examples of measures of cartogram effectiveness
 
 
 -->
+
+Measure changes to areas:
+Each hexagon area in the set of $npolys$ is standardised to 1 unit.
+Where 1 unit is the area of a hexagon of the designated size.
+
+$area_{h_i} = 1$
+
+$area_h = 1 * npolys$
+
+Areal Statistic Distortion is the change in the areal distribution of the set of polygons.
+Difference between space taken by polygons and space taken by hexagons, with respect to the desired statistic. Setting the desired statistic to area givesthe change in map space used to represent the polygons. 
+
+
+$A = \sum_{i=1}^{npolys}y_ix_i/ \sum_{i=1}^{npolys}x_i$
+
+Using $w_i = x_i/\sum_{i=1}^{npolys}x_i$
+
+$\sqrt{ 1/npolys\sum_{i=1}^{npolys}(y_i - \bar y)^2 w_i }$
+
+Considering only a local area distortion: 
+Where the subset used contains only neighbours within a certain distance of the polygon centroid
+
+Where $\bar y_d$ is the average of the polygon statistics considering only the polygons where the distance between polygon centroid x_i and polygon centroid x_p is less than d:
+
+$d(x_ix_p) < d$
+
+
+$\sqrt{ 1/npolys\sum_{i=1}^{npolys}(y_i - \bar y_d)^2 w_i }$
 
 
 <!--
