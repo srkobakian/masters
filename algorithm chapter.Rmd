@@ -159,6 +159,10 @@ The `st_read` function is applied internally to create the sf object.
 If the shape file is an .Rda file, it is loaded into the current environment.
 Empty geometries are removed from the sf object, and the remaining polygons are projected to the Australian standard.
 
+```{r}
+
+```
+
 The geometry column now contains projected polygons,
 the projected centroids are derived for all polygons remaining in the set.
 
@@ -172,6 +176,13 @@ The following parameter values are necessary for this step, and will be automati
 - filter distance: *the amount of hexagons around each centroid to consider for allocation, by default this is 10 hexagons*
 
 The grid creation takes several steps:
+
+
+```{r}
+# create grid calls these functions
+# call create grid here, or call these parts individually, may be a lot of code
+```
+
 
 ### Step 1: Expand the grid
 Two sequences are used, one for longitude and another for latitude.
@@ -211,11 +222,20 @@ Grid point figure
 
 ## Centroid to focal point distance 
 
+```{r}
+#map closest focal point function
+```
+
 For each polygon centroid in the set. Find the distance to each of the focal points provided. The closest focal point name, the distance to the polygon centroid, and the angle from focal point to polygon centroid will be returned and added to the polygon data set in the polygon centroid row. 
 
 The distance between the polygon centroid and it's closest focal point data set is used to arrange the data set for allocation. The points are arranged in ascending order, from the centroid closest to any of the focal points, to the furthest.
 
 ## Allocation of centroids
+
+```{r}
+#loop of centroid allocation
+```
+
 
 Allocation of all centroids can now take place using the set of polygon centroids and the hexagon map grid. 
 For each polygon centroid, only the hexagon grid points that have not yet been used can be considered.
