@@ -142,46 +142,94 @@ This inspired the concept of this algorithm.
 
 # Algorithm
 
-## Design of algorithm
+The algorithm operates on a set of polygons.
+There are parameters considered that may be provided, or will be automatically derived.
+All necessary functions are exported, with a main function `create_hexmap` used to step through automatically.
 
-First the collection of polygons is considered.
-There are several ways of providing the set of polygons. 
+When utilising individual functions, we recommend the following approach:
 
-The projected centroids of all polygons are derived.
+## Polygon Information
 
+The collection of polygons should be considered first.
+There are several ways of providing the set of polygons.
+The following methods are available via the `read_shape` function.
 
-Some values will be automatically derived if not provided.
-buffer distance:
-size of the hexagons:
-filter_dist:
+To utilise a shape file from a directory on your device, provide the file path for .shp file.
+The `st_read` function is applied internally to create the sf object.
+If the shape file is an .Rda file, it is loaded into the current environment.
+Empty geometries are removed from the sf object, and the remaining polygons are projected to the Australian standard.
 
-The buffer is created to allow expansion beyond the range of the centroids.
-It is a complex method, and becomes more detailed for smaller hexagons.
-It relies on the rows and columns of the hexagons.
+The geometry column now contains projected polygons,
+the projected centroids are derived for all polygons remaining in the set.
 
-- derive a group number
-- takes a rolling minimum and maximum for both longitudes and latitudes
-- takes a rolling average of these values
-- creates a smoother bufferzone expanding where there are hexagons along the coastline. Will not be smaller than the area containing the set of centroids
+## Hexgon grid
+Create a grid of hexagon centroids using the `create_grid` function.
 
-A hexagon point grid is created that contains possible points for a polygon to be allocated. 
+The following parameter values are necessary for this step, and will be automatically derived in the `create_hexmap` function if not provided:
 
+- buffer distance: *the distance, in degrees, to extend the hexagon grid beyond the polygon centroids provided*
+- size of the hexagons: *a float value in degrees for the width of the hexagons to be placed on the map space*
+- filter distance: *the amount of hexagons around each centroid to consider for allocation, by default this is 10 hexagons*
 
-For each polygon centroid in the set. Consider the distance to each of the focal points provided. The closest focal point name, the distance to the polygon centroid, and the angle from focal point to polygon centroid will be returned and added to the polygon data set. 
+The grid creation takes several steps:
 
-The distance between the polygon centroid and it's closest focal point data set is used to arrange the data set for allocation. The closest point is allocated first, extending to the furthest.
+### Step 1: Expand the grid
+Two sequences are used, one for longitude and another for latitude.
+The sequences begin at the minimum longitude or latitude, minus the buffer distance.
+Equally spaced intervals, the size of the hexagons, are created up to the maximum longitude or latitude, plus the buffer distance.
 
-Allocation of all centroids then occurs. For each polygon, only unallocated hexagon points will be considered. The filter distance is then used to subset possible points to only those surrounding the the polygon centroid. Of these possible points, only those within a range of the angle are kept. This angle begins at 30 degrees.
+An individual point is created from all combinations of longitude and latitude sequences.
+
+This grid is square, which will not facilitate tesselated hexagons. 
+Every second latitude (row) of points will be shifted right by half of the hexagon size.
+
+There are more points than necessary on this grid.
+To filter the grid for appropriate hexagons for allocation,
+the `create_buffer` function is used.
+
+### Step 2: Rolling windows
+The longitude columns and latitude rows are given integer id values.
+The rows and columns are then divided into 20 groups, 
+recording the amount of rows in each latitude group and the amount of columns in each longitude group.
+
+The amount of rows and columns are then used to make manual rolling windows.
+
+The first rolling window function finds the minimum and maximum centroid values for the longitude columns and latitude rows.
+
+The second rolling window function finds the average of the rolling minimum and rolling maximum centroid values, for the longitude columns and latitude rows.
+
+<!--
+Figure of rolling window construction
+-->
+
+### Step 3: Filtering the grid
+Only the grid points between the rolling average of the minimum and maximum centroid valuesare kept, for each row and column of the grid.
+
+<!--
+Grid point figure
+-->
+
+## Centroid to focal point distance 
+
+For each polygon centroid in the set. Find the distance to each of the focal points provided. The closest focal point name, the distance to the polygon centroid, and the angle from focal point to polygon centroid will be returned and added to the polygon data set in the polygon centroid row. 
+
+The distance between the polygon centroid and it's closest focal point data set is used to arrange the data set for allocation. The points are arranged in ascending order, from the centroid closest to any of the focal points, to the furthest.
+
+## Allocation of centroids
+
+Allocation of all centroids can now take place using the set of polygon centroids and the hexagon map grid. 
+For each polygon centroid, only the hexagon grid points that have not yet been used can be considered.
+The filter distance parameter is used to subset possible grid points to only those surrounding the polygon centroid within the filter distance.
+Using the angle between each polygon centroid, and it's the closest focal point, the subset of points is filtered again.
+Of these possible points, only those within a specific amount of degrees plus and minus a specific angle range are kept. This angle begins at 30 degrees by default, and may increase if necessary.
+
+<!--
+figure of angle growing to show allocation of hexagons
+-->
 
 If no available hexagon grid point is found within the original filter distance and angle, the distance is expanded, only when a maximum distance is reached will the angle expand to accomodate more possible grid points.  
 
 The allocation is returned and combined with the data relating to each polygon.
-
-<!-- How much detail for derived
--->
-
-
-First  give  the  intuitive  solution.
 
 <!--
 Prosecode:  Number each step, never break a loop over steps,

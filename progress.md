@@ -98,6 +98,7 @@ A. Completed exam for FIT9133
 
 1. *Prepare thesis chapter for submission*
     - began structure of thesis chapter
+    - first draft of thesis chapter
 
 ##  JANUARY - FEBRUARY
 
